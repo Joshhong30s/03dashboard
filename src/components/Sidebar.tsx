@@ -1,30 +1,40 @@
 import React from 'react'
+import Link from 'next/link'
 
 interface SidebarProps {
   show: boolean
+  onToggle: () => void
 }
 
-const Sidebar: React.FC<SidebarProps> = ({ show }) => {
+const Sidebar: React.FC<SidebarProps> = ({ show, onToggle }) => {
   return (
     <div
       className={`${
-        show ? 'block md:flex' : 'hidden md:flex'
-      } flex flex-col items-start space-y-4 p-4 bg-gray-200 md:w-64 w-full min-h-screen`}
+        show ? 'block' : 'hidden'
+      } md:flex flex-col items-start space-y-10 p-4 bg-gray-200 md:w-64 w-full min-h-screen fixed md:static md:h-auto z-10`}
     >
-      <h2 className='text-2xl font-semibold text-gray-800'>Health Dashboard</h2>
+      <button
+        onClick={onToggle}
+        className='absolute top-4 left-4 text-gray-700 md:hidden'
+      >
+        Close
+      </button>
+      <h2 className='text-2xl font-semibold text-gray-800'>
+        Coffee Chain Dashboard
+      </h2>
       <nav className='flex flex-col space-y-2'>
-        <a href='#' className='text-lg font-medium text-gray-700'>
-          Dashboard Overview
-        </a>
-        <a href='#' className='text-lg font-medium text-gray-700'>
-          Analytics
-        </a>
-        <a href='#' className='text-lg font-medium text-gray-700'>
-          Calendar
-        </a>
-        <a href='#' className='text-lg font-medium text-gray-700'>
-          Profile
-        </a>
+        <Link href='/overview' className='text-lg font-medium text-gray-700'>
+          Site Overview
+        </Link>
+        <Link href='/comparison' className='text-lg font-medium text-gray-700'>
+          Site Comparison
+        </Link>
+        <Link href='/evaluation' className='text-lg font-medium text-gray-700'>
+          Site Evaluation
+        </Link>
+        <Link href='/dataimport' className='text-lg font-medium text-gray-700'>
+          Site DataImport
+        </Link>
       </nav>
     </div>
   )

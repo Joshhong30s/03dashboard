@@ -3,15 +3,22 @@ import React from 'react'
 
 interface UserProfileProps {
   show: boolean
+  onToggle: () => void
 }
 
-const UserProfile: React.FC<UserProfileProps> = ({ show }) => {
+const UserProfile: React.FC<UserProfileProps> = ({ show, onToggle }) => {
   return (
     <div
       className={`${
         show ? 'block' : 'hidden'
-      } flex flex-col items-start space-y-4 p-4 bg-gray-200 w-64 h-full md:block`}
+      } md:flex flex-col items-start space-y-10 p-4 bg-gray-200 md:w-64 w-full min-h-screen fixed md:static md:h-auto z-10`}
     >
+      <button
+        onClick={onToggle}
+        className='absolute top-4 right-4 text-gray-700 md:hidden'
+      >
+        Close
+      </button>
       <Image
         src='/pp1.png'
         alt='User Profile'
