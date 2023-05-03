@@ -20,20 +20,20 @@ const Sidebar: React.FC<SidebarProps> = ({ show, onToggle }) => {
         Close
       </button>
       <h2 className='text-2xl font-semibold text-gray-800'>
-        Coffee Chain Dashboard
+        Coffee Chain Customer Analysis Dashboard
       </h2>
       <nav className='flex flex-col space-y-2'>
         <Link href='/overview' className='text-lg font-medium text-gray-700'>
-          Site Overview
+          Store Overview
         </Link>
         <Link href='/comparison' className='text-lg font-medium text-gray-700'>
-          Site Comparison
+          Store Comparison
         </Link>
         <Link href='/evaluation' className='text-lg font-medium text-gray-700'>
-          Site Evaluation
+          Store Evaluation
         </Link>
         <Link href='/dataimport' className='text-lg font-medium text-gray-700'>
-          Site DataImport
+          Store DataImport
         </Link>
       </nav>
     </div>
