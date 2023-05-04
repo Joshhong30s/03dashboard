@@ -21,6 +21,7 @@ async function handler(req: NextApiRequest, res: NextApiResponse) {
 
   // Auth
   const auth = new GoogleAuth({
+    credentials,
     scopes: ['https://www.googleapis.com/auth/spreadsheets'],
   })
 
