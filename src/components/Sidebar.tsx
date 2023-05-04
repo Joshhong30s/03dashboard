@@ -7,6 +7,7 @@ import {
   MdMenuBook,
   MdOutlinePeopleAlt,
 } from 'react-icons/md'
+import { MdClose } from 'react-icons/md'
 
 import { GiCoffeeCup } from 'react-icons/gi'
 
@@ -29,7 +30,7 @@ const Sidebar: React.FC<SidebarProps> = ({ show, onToggle }) => {
         onClick={onToggle}
         className='absolute top-4 left-4 text-white md:hidden'
       >
-        Close
+        <MdClose size={30} />
       </button>
       <div className='space-y-10 flex flex-col items-center'>
         <GiCoffeeCup size={80} className='text-white text-center' />

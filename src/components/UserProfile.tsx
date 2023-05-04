@@ -2,7 +2,7 @@ import Image from 'next/image'
 import React from 'react'
 import { Calendar } from '@/components/calendar'
 import { Button } from '@/components/button'
-
+import { MdClose } from 'react-icons/md'
 interface UserProfileProps {
   show: boolean
   onToggle: () => void
@@ -20,7 +20,7 @@ const UserProfile: React.FC<UserProfileProps> = ({ show, onToggle }) => {
         onClick={onToggle}
         className='absolute top-4 right-4 text-white md:hidden'
       >
-        Close{' '}
+        <MdClose size={30} />
       </button>
       <div className='flex flex-col items-center md:w-full '>
         <Image

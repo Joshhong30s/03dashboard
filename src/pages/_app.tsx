@@ -3,6 +3,7 @@ import type { AppProps } from 'next/app'
 import Sidebar from '../components/Sidebar'
 import UserProfile from '../components/UserProfile'
 import { useState } from 'react'
+import { MdMenu, MdOutlineAccountBox } from 'react-icons/md'
 
 function MyApp({ Component, pageProps }: AppProps) {
   const [showSidebar, setShowSidebar] = useState(false)
@@ -16,18 +17,18 @@ function MyApp({ Component, pageProps }: AppProps) {
       />
       <div className='flex flex-grow'>
         <div className='flex flex-col w-full'>
-          <header className='flex justify-between items-center p-10 md:hidden bg-gray-300'>
+          <header className='flex justify-between items-center p-4 md:hidden bg-black'>
             <button
               onClick={() => setShowSidebar(!showSidebar)}
               className='md:hidden text-gray-700'
             >
-              Menu
+              <MdMenu size={30} className='text-white' />
             </button>
             <button
               onClick={() => setShowUserProfile(!showUserProfile)}
               className='md:hidden text-gray-700'
             >
-              Profile
+              <MdOutlineAccountBox size={30} className='text-white' />
             </button>
           </header>
           <main className='flex-grow'>
