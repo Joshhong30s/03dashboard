@@ -1,47 +1,36 @@
-I'm making a dashboard template for Health company, please help me with following requirements
-The stack will be Next.js, Tailwind, Typescript react recharts, react table, so please make your design in according with the stack.
+This is a dashboard for shop owners to analyze customers demographic and purchase behaviors.
 
-## Overview
+## Store Overview
 
-The dashboard will contain few sections:
+This page provides dashboard for single store overview
 
-Sidebar menu on the left
-Main Area for displaying health card and charts
-User profile & Calendar on the right
+- Demographic in radar chart
+- Item category sold in bar chart
+- Average ticket price and avaverage ticket count info card
+- Customer during weekdays / weekend in line chart
 
-## sidebar
+## Store Comparison
 
-The sidebar will contain following menu tags:
+This page provides dashboard for two store comparison
 
-── Sidebar
-│ ├── Dashboard overview(default)
-│ ├── Analytics
-│ ├── Calendar
-│ ├── Profile
+- Demographic in radar chart
+- Item category sold in bar chart
+- Average ticket price and avaverage ticket count info card
+- Customer during weekdays / weekend in line chart
 
-## Main Area
+## Product Analysis (under development)
 
-The main area will be consisted of couple cards and charts
+The page provides a sample dashboard for product analysis
 
-── Main Area
-│ ├── Welcome section card
-│ ├── Info card
-│ ├── heart rate
-│ ├── blood pressure
-│ ├── blood sugar
-│ ├── Charts (can query period by calendar to show changes by day)
+- Query period can be last week, last 14 days, and last month
+- Hero products in each category
+- Pie chart with all items by category
+- bar chart with all items by store
 
-## User profile & Calendar
+## Menu Planning (under development)
 
-User Profile - consist of user pic, weight, height, and sign out button
-Canlendar - calendar, add event button, and event list for the day
+This page provides some input areas for store owners modify menu with instant visualisation
 
----
+## Staff Planning (under development)
 
-- Please generate html with Tailwind css accordingly, don't worry about JS functionalities for now.
-- Please make it responsive.
-- We will use recharts library later for creating charts, so please consider it when making html & css layout. And you can provide codes with planned project folder structure.
-
-I know I'm providing sufficient datasets for you to create UI, but you may create those fake necessary dataset example based on your knowledge and experience. I believe you can.
-However, if you need more information to make it complete, please feel free to ask me.
-Thanks.
+## This page provides control panel for store owners to adjust staff shift

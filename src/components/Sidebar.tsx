@@ -33,11 +33,11 @@ const Sidebar: React.FC<SidebarProps> = ({ show, onToggle }) => {
       </button>
       <div className='space-y-10 flex flex-col items-center'>
         <GiCoffeeCup size={80} className='text-white text-center' />
-        <h2 className='text-2xl font-semibold text-white text-center'>
+        <h2 className='text-xl font-semibold text-white text-center'>
           Customer Analysis Dashboard
         </h2>
       </div>
-      <nav className='flex flex-col space-y-6'>
+      <nav className='flex flex-col space-y-6 items-center justify-center'>
         <div className={navItemClasses}>
           <MdOutlineStore size={24} className='text-gray-300' />
           <Link

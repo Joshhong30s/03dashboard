@@ -304,16 +304,12 @@ export default function Overivew() {
   return (
     <div className='bg-background min-h-screen'>
       <main className='container mx-auto p-4'>
-        <div className='text-black bg-card border-2 mt-4 p-6 rounded-lg shadow-md flex items-center'>
-          <label htmlFor='site-select' className='text-xl font-bold'>
-            Select a Store
-          </label>
-
-          <div className='relative'>
+        <div className='text-black bg-card border-2 mt-4 rounded-md shadow-md flex justify-between items-center'>
+          <div className='relative w-full'>
             <select
               id='site-select'
               onChange={handleSiteChange}
-              className='appearance-none ml-4 p-2 pl-4 pr-10 bg-card border-2 border-black rounded-lg text-2xl font-bold focus:outline-none focus:border-black hover:border-black transition-all'
+              className='appearance-none py-4 px-2 pr-12 w-full h-full bg-card rounded-lg text-xl text-center font-bold focus:outline-none focus:border-black hover:border-black transition-all'
             >
               {sites.map((site, index) => (
                 <option key={index} value={index}>
@@ -333,66 +329,73 @@ export default function Overivew() {
             </div>
           </div>
         </div>
-        <div className='grid grid-cols-1 md:grid-cols-3 gap-4 mt-8'>
-          {/* 1st div: radar chart */}
-          <div className='text-black bg-card border-2 p-4 rounded-lg shadow-md text-center'>
-            <p className='font-bold mb-10 text-lg'>Demographics</p>
-            <ResponsiveContainer width='100%' height={500}>
-              <RadarChart
-                cx='50%'
-                cy='50%'
-                outerRadius='80%'
-                width={500}
-                height={500}
-                data={radar()}
-              >
-                <PolarGrid />
-                <PolarAngleAxis dataKey='id' />
-                <PolarRadiusAxis />
-                <Legend content={<CustomLegend />} />
-                <Radar
-                  name={sites[selectedSiteIndex]?.place ?? 'Site'}
-                  dataKey='A'
-                  stroke='#8884d8'
-                  fill='#8884d8'
-                  fillOpacity={0.6}
-                />
-              </RadarChart>
-            </ResponsiveContainer>
-          </div>
-          {/* 2nd div: bar chart */}
-          <div className='text-black bg-card border-2 p-4 rounded-lg shadow-md  text-center'>
-            <p className='font-bold mb-10 text-lg'>Item Sold</p>
-            <ResponsiveContainer width='100%' height={500}>
-              <BarChart
-                width={500}
-                height={500}
-                data={bar()}
-                margin={{
-                  top: 5,
-                  right: 30,
-                  left: 20,
-                  bottom: 5,
-                }}
-              >
-                <CartesianGrid strokeDasharray='3 3' />
-                <XAxis dataKey='id' />
-                <YAxis />
 
-                <Legend content={<CustomLegend />} />
-                <Bar dataKey='A' fill='#8884d8' />
-              </BarChart>
-            </ResponsiveContainer>
+        {loading ? (
+          <div className='flex justify-center items-center h-64'>
+            <span className='animate-spin rounded-full h-16 w-16 border-t-2 border-b-2 border-gray-900'></span>
+            <span className='sr-only'>Loading Data ...</span>
           </div>
+        ) : (
+          <div className='grid grid-cols-1 md:grid-cols-3 gap-4 mt-8'>
+            {/* 1st div: radar chart */}
+            <div className='text-black bg-card border-2 p-4 rounded-lg shadow-md text-center'>
+              <p className='font-bold mb-10 text-lg'>Demographics</p>
+              <ResponsiveContainer width='100%' height={500}>
+                <RadarChart
+                  cx='50%'
+                  cy='50%'
+                  outerRadius='80%'
+                  width={500}
+                  height={500}
+                  data={radar()}
+                >
+                  <PolarGrid />
+                  <PolarAngleAxis dataKey='id' />
+                  <PolarRadiusAxis />
+                  <Legend content={<CustomLegend />} />
+                  <Radar
+                    name={sites[selectedSiteIndex]?.place ?? 'Site'}
+                    dataKey='A'
+                    stroke='#8884d8'
+                    fill='#8884d8'
+                    fillOpacity={0.6}
+                  />
+                </RadarChart>
+              </ResponsiveContainer>
+            </div>
+            {/* 2nd div: bar chart */}
+            <div className='text-black bg-card border-2 p-4 rounded-lg shadow-md  text-center'>
+              <p className='font-bold mb-10 text-lg'>Item Sold</p>
+              <ResponsiveContainer width='100%' height={500}>
+                <BarChart
+                  width={500}
+                  height={500}
+                  data={bar()}
+                  margin={{
+                    top: 5,
+                    right: 30,
+                    left: 20,
+                    bottom: 5,
+                  }}
+                >
+                  <CartesianGrid strokeDasharray='3 3' />
+                  <XAxis dataKey='id' />
+                  <YAxis />
 
-          <div className='text-black bg-card border-2 p-4 rounded-lg shadow-md text-center flex flex-col'>
-            <p className='font-bold mb-20 text-lg'>
-              Ticket Count & Ticket Size
-            </p>
-            <InfoCard />
+                  <Legend content={<CustomLegend />} />
+                  <Bar dataKey='A' fill='#8884d8' />
+                </BarChart>
+              </ResponsiveContainer>
+            </div>
+
+            <div className='text-black bg-card border-2 p-4 rounded-lg shadow-md text-center flex flex-col'>
+              <p className='font-bold mb-20 text-lg'>
+                Ticket Count & Ticket Size
+              </p>
+              <InfoCard />
+            </div>
           </div>
-        </div>
-
+        )}
         {/* 4th div: weekday customer line chart */}
         <div className='text-black bg-card border-2 p-4 mt-8 rounded-lg shadow-md text-center'>
           <p className='font-bold mb-10 text-lg'>Weekday Customer</p>

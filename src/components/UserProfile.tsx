@@ -1,6 +1,7 @@
 import Image from 'next/image'
 import React from 'react'
 import { Calendar } from '@/components/calendar'
+import { Button } from '@/components/button'
 
 interface UserProfileProps {
   show: boolean
@@ -21,7 +22,7 @@ const UserProfile: React.FC<UserProfileProps> = ({ show, onToggle }) => {
       >
         Close{' '}
       </button>
-      <div className='flex flex-col items-center md:w-full space-y-2'>
+      <div className='flex flex-col items-center md:w-full '>
         <Image
           src='/pp1.png'
           alt='User Profile'
@@ -29,15 +30,15 @@ const UserProfile: React.FC<UserProfileProps> = ({ show, onToggle }) => {
           width={96}
           height={96}
         />
-        <p className='text-xl font-semibold text-white'>Josh Hong</p>
-        <p className='text-lg text-gray-300'>Regional Manager</p>
-      </div>
-      <div className='flex flex-col items-center w-full space-y-4 mt-4'>
-        <button className='text-lg text-black hover:text-2xl hover:font-bold w-full text-center p-4 bg-gray-300'>
+        <p className='text-xl font-semibold text-white mt-2'>Josh Hong</p>
+        <p className='text-lg text-gray-300 mt-2'>Regional Manager</p>
+        <Button variant='outline' className='text-center text-white mt-6'>
           Sign Out
-        </button>
-        <hr className='w-full my-4 border-t-2 border-gray-500'></hr>
+        </Button>
       </div>
+
+      <hr className='w-full my-4 border-t-2 border-gray-500'></hr>
+
       <Calendar
         mode='single'
         selected={date}

@@ -457,16 +457,12 @@ export default function Overivew() {
   return (
     <div className='bg-background min-h-screen'>
       <main className='container mx-auto p-4'>
-        <div className='text-black bg-card border-2 p-6 rounded-lg shadow-md flex items-center'>
-          <label htmlFor='site-select-A' className='text-xl font-bold'>
-            Select Store A
-          </label>
-
-          <div className='relative'>
+        <div className='text-black bg-card mt-4 rounded-md flex justify-between items-center'>
+          <div className='relative w-1/3 border-2 rounded-lg'>
             <select
               id='site-select-A'
               onChange={handleSiteAChange}
-              className='appearance-none ml-4 p-2 pl-4 pr-10 bg-card border-2 border-black rounded-lg text-2xl font-bold focus:outline-none focus:border-black hover:border-black transition-all'
+              className='appearance-none py-4 px-4 w-full h-full rounded-lg text-xl  text-center font-bold focus:outline-none focus:border-black hover:border-black transition-all'
             >
               {sites.map((site, index) => (
                 <option key={index} value={index}>
@@ -475,20 +471,21 @@ export default function Overivew() {
               ))}
             </select>
             <div className='pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-black'>
-              <svg className='w-6 h-6' fill='currentColor' viewBox='0 0 20 20'>
+              <svg
+                className='w-10 h-10'
+                fill='currentColor'
+                viewBox='0 0 20 20'
+              >
                 <path d='M5 8l5 5 5-5H5z' />
               </svg>
             </div>
           </div>
-          <label htmlFor='site-select-B' className='ml-6 text-xl font-bold'>
-            Select Store B
-          </label>
 
-          <div className='relative'>
+          <div className='relative w-1/3 border-2 rounded-lg '>
             <select
               id='site-select-B'
               onChange={handleSiteBChange}
-              className='appearance-none ml-4 p-2 pl-4 pr-10 bg-card border-2 border-black rounded-lg text-2xl font-bold focus:outline-none focus:border-black hover:border-black transition-all'
+              className='appearance-none py-4 px-4 w-full h-full rounded-lg text-xl text-center font-bold focus:outline-none focus:border-black hover:border-black transition-all'
             >
               {sites.map((site, index) => (
                 <option key={index} value={index}>
@@ -497,7 +494,11 @@ export default function Overivew() {
               ))}
             </select>
             <div className='pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-black'>
-              <svg className='w-6 h-6' fill='currentColor' viewBox='0 0 20 20'>
+              <svg
+                className='w-10 h-10'
+                fill='currentColor'
+                viewBox='0 0 20 20'
+              >
                 <path d='M5 8l5 5 5-5H5z' />
               </svg>
             </div>
