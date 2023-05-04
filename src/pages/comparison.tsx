@@ -458,7 +458,7 @@ export default function Overivew() {
     <div className='bg-background min-h-screen'>
       <main className='container mx-auto p-4'>
         <div className='text-black bg-card mt-4 rounded-md flex justify-between items-center'>
-          <div className='relative w-1/3 border-2 rounded-lg'>
+          <div className='relative w-5/12 border-2 rounded-lg'>
             <select
               id='site-select-A'
               onChange={handleSiteAChange}
@@ -481,7 +481,7 @@ export default function Overivew() {
             </div>
           </div>
 
-          <div className='relative w-1/3 border-2 rounded-lg '>
+          <div className='relative w-5/12 border-2 rounded-lg '>
             <select
               id='site-select-B'
               onChange={handleSiteBChange}

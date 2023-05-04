@@ -8,8 +8,7 @@ import {
   MdOutlinePeopleAlt,
 } from 'react-icons/md'
 import { MdClose } from 'react-icons/md'
-
-import { GiCoffeeCup } from 'react-icons/gi'
+import Image from 'next/image'
 
 interface SidebarProps {
   show: boolean
@@ -33,9 +32,15 @@ const Sidebar: React.FC<SidebarProps> = ({ show, onToggle }) => {
         <MdClose size={30} />
       </button>
       <div className='space-y-10 flex flex-col items-center'>
-        <GiCoffeeCup size={80} className='text-white text-center' />
+        <Image
+          src='/logo.svg'
+          alt='logo'
+          width={80}
+          height={80}
+          className='text-center'
+        />
         <h2 className='text-xl font-semibold text-white text-center'>
-          Customer Analysis Dashboard
+          Coffee Friend
         </h2>
       </div>
       <nav className='flex flex-col space-y-6 items-center justify-center'>
@@ -63,7 +68,7 @@ const Sidebar: React.FC<SidebarProps> = ({ show, onToggle }) => {
             href='/product'
             className='text-base font-medium text-gray-300 hover:text-white transition-colors hover:scale-110'
           >
-            Product Analysis
+            Product Analysis (under dev.)
           </Link>
         </div>
         <div className={navItemClasses}>
@@ -72,7 +77,7 @@ const Sidebar: React.FC<SidebarProps> = ({ show, onToggle }) => {
             href='/menu'
             className='text-base font-medium text-gray-300 hover:text-white transition-colors hover:scale-110'
           >
-            Menu Planning
+            Menu Planning (under dev.)
           </Link>
         </div>
         <div className={navItemClasses}>
@@ -81,7 +86,7 @@ const Sidebar: React.FC<SidebarProps> = ({ show, onToggle }) => {
             href='/staff'
             className='text-base font-medium text-gray-300 hover:text-white transition-colors hover:scale-110'
           >
-            Staff Planning
+            Staff Planning (under dev.)
           </Link>
         </div>
       </nav>
