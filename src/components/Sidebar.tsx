@@ -41,7 +41,7 @@ const Sidebar: React.FC<SidebarProps> = ({ show, onToggle }) => {
         <div className={navItemClasses}>
           <MdOutlineStore size={24} className='text-gray-300' />
           <Link
-            href='/overview'
+            href='/'
             className='text-base font-medium text-gray-300 hover:text-white transition-colors hover:scale-110'
           >
             Store Overview
