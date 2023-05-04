@@ -21,7 +21,6 @@ import {
 } from 'recharts'
 
 import { AreaChart, Area } from 'recharts'
-import { TfiHandPointRight } from 'react-icons/tfi'
 
 interface Sites {
   place: string

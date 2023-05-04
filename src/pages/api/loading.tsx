@@ -3,6 +3,22 @@ import { google } from 'googleapis'
 import { GoogleAuth } from 'google-auth-library'
 
 async function handler(req: NextApiRequest, res: NextApiResponse) {
+  // check if base64 settled
+  if (!process.env.GOOGLE_APPLICATION_CREDENTIALS_JSON_BASE64) {
+    throw new Error(
+      'GOOGLE APPLICATION CREDENTIALS JSON BASE64 is not set in env variables'
+    )
+  }
+
+  // decode base64 string
+  const credentialsJson = Buffer.from(
+    process.env.GOOGLE_APPLICATION_CREDENTIALS_JSON_BASE64,
+    'base64'
+  ).toString()
+
+  // parse the JSON string into an object
+  const credentials = JSON.parse(credentialsJson)
+
   // Auth
   const auth = new GoogleAuth({
     scopes: ['https://www.googleapis.com/auth/spreadsheets'],
