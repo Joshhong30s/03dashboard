@@ -16,7 +16,7 @@ function MyApp({ Component, pageProps }: AppProps) {
       />
       <div className='flex flex-grow'>
         <div className='flex flex-col w-full'>
-          <header className='flex justify-between items-center p-4 bg-gray-200'>
+          <header className='flex justify-between items-center p-10 md:hidden bg-gray-300'>
             <button
               onClick={() => setShowSidebar(!showSidebar)}
               className='md:hidden text-gray-700'

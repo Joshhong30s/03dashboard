@@ -1,5 +1,7 @@
 import { useState, useEffect } from 'react'
 import React, { ChangeEvent } from 'react'
+import { AreaChart, Area } from 'recharts'
+import { TfiHandPointRight } from 'react-icons/tfi'
 import {
   RadarChart,
   PolarGrid,
@@ -12,7 +14,7 @@ import {
 import {
   BarChart,
   Bar,
-  Cell,
+  LabelList,
   XAxis,
   YAxis,
   CartesianGrid,
@@ -66,7 +68,10 @@ export default function Overivew() {
   const [loading, setLoading] = useState(false)
   const [selectedSiteA, setSelectedSiteA] = useState(0)
   const [selectedSiteB, setSelectedSiteB] = useState(0)
-
+  const siteA = sites[selectedSiteA]
+  const siteB = sites[selectedSiteB]
+  const siteAName = sites[selectedSiteA]?.place || ''
+  const siteBName = sites[selectedSiteB]?.place || ''
   const [refresh, setRefresh] = useState(0)
 
   const handleSiteAChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
@@ -160,9 +165,6 @@ export default function Overivew() {
 
   const radar = () => {
     if (sites.length > 0 && selectedSiteA !== null && selectedSiteB !== null) {
-      const siteA = sites[selectedSiteA]
-      const siteB = sites[selectedSiteB]
-
       return [
         {
           id: 'whitecollar',
@@ -206,8 +208,6 @@ export default function Overivew() {
 
   const bar = () => {
     if (sites.length > 0 && selectedSiteA !== null && selectedSiteB !== null) {
-      const siteA = sites[selectedSiteA]
-      const siteB = sites[selectedSiteB]
       // If siteA or siteB are not selected, set their values to 0
 
       return [
@@ -241,37 +241,51 @@ export default function Overivew() {
 
   const InfoCard = () => {
     if (sites.length > 0 && selectedSiteA !== null && selectedSiteB !== null) {
-      const siteA = sites[selectedSiteA]
-      const siteB = sites[selectedSiteB]
       const siteAAvgPrice = siteA ? siteA.avgprice : 0
       const siteBAvgPrice = siteB ? siteB.avgprice : 0
       const siteAAvgCount = siteA ? siteA.avgcount : 0
       const siteBAvgCount = siteB ? siteB.avgcount : 0
 
       return (
-        <div className='grid grid-cols-2 md:grid-cols-4 gap-4 text-center bg-white p-4 rounded-lg shadow-md'>
+        <div className='grid grid-cols-1 md:grid-cols-1 gap-4'>
           {/* Site A Average Ticket Size */}
-          <div className='flex flex-col justify-center items-center p-4 bg-blue-100 rounded-lg'>
-            <h3 className='text-lg font-bold'>Avg Ticket Size (Site A)</h3>
-            <p className='text-xl text-blue-800'>{siteAAvgPrice.toFixed(2)}</p>
+          <div className='bg-card bg-violet-300 border-2 p-4 m-2 rounded-lg shadow-md w-full flex-grow flex flex-col justify-center items-center gap-4'>
+            <div className='text-base md:text-lg font-bold text-black'>
+              Avg. Ticket Size {siteAName}
+            </div>
+            <p className='text-2xl md:text-4xl font-bold text-black'>
+              ${siteAAvgPrice.toFixed(0)}
+            </p>
           </div>
 
           {/* Site A Average Ticket Count */}
-          <div className='flex flex-col justify-center items-center p-4 bg-blue-100 rounded-lg'>
-            <h3 className='text-lg font-bold'>Avg Ticket Count (Site A)</h3>
-            <p className='text-xl text-blue-800'>{siteAAvgCount.toFixed(0)}</p>
+          <div className='bg-card bg-violet-300 border-2 p-4 m-2 rounded-lg shadow-md w-full flex-grow flex flex-col justify-center items-center gap-4'>
+            <div className='text-base md:text-lg font-bold text-black'>
+              Avg. Ticket Count {siteAName}
+            </div>
+            <p className='text-2xl md:text-4xl font-bold text-black'>
+              #{siteAAvgCount.toFixed(0)}
+            </p>
           </div>
 
           {/* Site B Average Ticket Size */}
-          <div className='flex flex-col justify-center items-center p-4 bg-green-100 rounded-lg'>
-            <h3 className='text-lg font-bold'>Avg Ticket Size (Site B)</h3>
-            <p className='text-xl text-green-800'>{siteBAvgPrice.toFixed(2)}</p>
+          <div className='bg-card bg-green-200 border-2 p-4 m-2 rounded-lg shadow-md w-full flex-grow flex flex-col justify-center items-center gap-4'>
+            <div className='text-base md:text-lg font-bold text-black'>
+              Avg. Ticket Size {siteBName}
+            </div>
+            <p className='text-2xl md:text-4xl font-bold text-black'>
+              ${siteBAvgPrice.toFixed(0)}
+            </p>
           </div>
 
           {/* Site B Average Ticket Count */}
-          <div className='flex flex-col justify-center items-center p-4 bg-green-100 rounded-lg'>
-            <h3 className='text-lg font-bold'>Avg Ticket Count (Site B)</h3>
-            <p className='text-xl text-green-800'>{siteBAvgCount.toFixed(0)}</p>
+          <div className='bg-card bg-green-200 border-2 p-4 m-2 rounded-lg shadow-md w-full flex-grow flex flex-col justify-center items-center gap-4'>
+            <div className='text-base md:text-lg font-bold text-black'>
+              Avg. Ticket Count {siteBName}
+            </div>
+            <p className='text-2xl md:text-4xl font-bold text-black'>
+              #{siteBAvgCount.toFixed(0)}
+            </p>
           </div>
         </div>
       )
@@ -281,9 +295,6 @@ export default function Overivew() {
 
   const weekday = () => {
     if (sites.length > 0 && selectedSiteA !== null && selectedSiteB !== null) {
-      const siteA = sites[selectedSiteA]
-      const siteB = sites[selectedSiteB]
-
       return [
         {
           id: '7am',
@@ -444,37 +455,59 @@ export default function Overivew() {
   }
 
   return (
-    <div className='bg-gray-100 min-h-screen'>
+    <div className='bg-background min-h-screen'>
       <main className='container mx-auto p-4'>
-        <h1 className='text-3xl font-bold mb-4'>Store Comparison</h1>
-        <div className='bg-white p-4 rounded-lg shadow-md'>
-          <select
-            onChange={handleSiteAChange}
-            className='ml-2 p-1 border rounded'
-          >
-            {sites.map((site: Sites, index: number) => (
-              <option key={index} value={index}>
-                {site.place}
-              </option>
-            ))}
-          </select>
+        <div className='text-black bg-card border-2 p-6 rounded-lg shadow-md flex items-center'>
+          <label htmlFor='site-select-A' className='text-xl font-bold'>
+            Select Store A
+          </label>
 
-          <select
-            onChange={handleSiteBChange}
-            className='ml-2 p-1 border rounded'
-          >
-            {sites.map((site: Sites, index: number) => (
-              <option key={index} value={index}>
-                {site.place}
-              </option>
-            ))}
-          </select>
+          <div className='relative'>
+            <select
+              id='site-select-A'
+              onChange={handleSiteAChange}
+              className='appearance-none ml-4 p-2 pl-4 pr-10 bg-card border-2 border-black rounded-lg text-2xl font-bold focus:outline-none focus:border-black hover:border-black transition-all'
+            >
+              {sites.map((site, index) => (
+                <option key={index} value={index}>
+                  {site.place}
+                </option>
+              ))}
+            </select>
+            <div className='pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-black'>
+              <svg className='w-6 h-6' fill='currentColor' viewBox='0 0 20 20'>
+                <path d='M5 8l5 5 5-5H5z' />
+              </svg>
+            </div>
+          </div>
+          <label htmlFor='site-select-B' className='ml-6 text-xl font-bold'>
+            Select Store B
+          </label>
+
+          <div className='relative'>
+            <select
+              id='site-select-B'
+              onChange={handleSiteBChange}
+              className='appearance-none ml-4 p-2 pl-4 pr-10 bg-card border-2 border-black rounded-lg text-2xl font-bold focus:outline-none focus:border-black hover:border-black transition-all'
+            >
+              {sites.map((site, index) => (
+                <option key={index} value={index}>
+                  {site.place}
+                </option>
+              ))}
+            </select>
+            <div className='pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-black'>
+              <svg className='w-6 h-6' fill='currentColor' viewBox='0 0 20 20'>
+                <path d='M5 8l5 5 5-5H5z' />
+              </svg>
+            </div>
+          </div>
         </div>
         <div className='grid grid-cols-1 md:grid-cols-3 gap-4 mt-8'>
           {/* 1st div: radar chart */}
 
-          <div className='bg-white p-4 rounded-lg shadow-md'>
-            <p className='font-bold'>Demographics</p>
+          <div className='text-black bg-card border-2 p-4 rounded-lg shadow-md text-center'>
+            <p className='font-bold mb-10 text-lg'>Demographics</p>
             <ResponsiveContainer width='100%' height={500}>
               <RadarChart
                 cx='50%'
@@ -488,34 +521,36 @@ export default function Overivew() {
                 <PolarAngleAxis dataKey='id' />
                 <PolarRadiusAxis angle={30} domain={[0, 150]} />
                 <Radar
-                  name={
-                    selectedSiteA !== null
-                      ? sites[selectedSiteA]?.place
-                      : 'Site A'
-                  }
                   dataKey='A'
                   stroke='#8884d8'
                   fill='#8884d8'
                   fillOpacity={0.4}
                 />
                 <Radar
-                  name={
-                    selectedSiteB !== null
-                      ? sites[selectedSiteB]?.place
-                      : 'Site B'
-                  }
                   dataKey='B'
                   stroke='#82ca9d'
                   fill='#82ca9d'
                   fillOpacity={0.4}
+                />
+                <Tooltip />
+                <Legend
+                  formatter={(value, entry, index) => {
+                    if (value === 'A') {
+                      return siteAName
+                    } else if (value === 'B') {
+                      return siteBName
+                    } else {
+                      return value
+                    }
+                  }}
                 />
               </RadarChart>
             </ResponsiveContainer>
           </div>
 
           {/* 2nd div: bar chart */}
-          <div className='bg-white p-4 rounded-lg shadow-md'>
-            <p className='font-bold'>Item Sold</p>
+          <div className='text-black bg-card border-2 p-4 rounded-lg shadow-md  text-center'>
+            <p className='font-bold mb-10 text-lg'>Item Sold</p>
             <ResponsiveContainer width='100%' height={500}>
               <BarChart
                 width={500}
@@ -532,22 +567,34 @@ export default function Overivew() {
                 <XAxis dataKey='id' />
                 <YAxis />
                 <Tooltip />
-                <Legend />
-                <Bar dataKey='A' fill='#8884d8' />
-                <Bar dataKey='B' fill='#82ca9d' />
+                <Legend
+                  formatter={(value, entry, index) => {
+                    if (value === 'A') {
+                      return siteAName
+                    } else if (value === 'B') {
+                      return siteBName
+                    } else {
+                      return value
+                    }
+                  }}
+                />
+                <Bar dataKey='A' fill='#8884d8'></Bar>
+                <Bar dataKey='B' fill='#82ca9d'></Bar>
               </BarChart>
             </ResponsiveContainer>
           </div>
 
-          <div className='bg-white p-4 rounded-lg shadow-md'>
-            <p className='font-bold'>Ticket Count/Size</p>
+          <div className='text-black bg-card border-2 p-4 rounded-lg shadow-md text-center flex flex-col'>
+            <p className='font-bold  mb-6 text-lg'>
+              Ticket Count & Ticket Size
+            </p>
             <InfoCard />
           </div>
         </div>
 
-        {/* 4th div: weekday footfall line chart */}
-        <div className='bg-white p-4 mt-8 rounded-lg shadow-md'>
-          <p className='font-bold'>Weekday Footfall</p>
+        {/* 4th div: weekday customer line chart */}
+        <div className='text-black bg-card border-2 p-4 mt-8 rounded-lg shadow-md text-center'>
+          <p className='font-bold mb-10 text-lg'>Weekday Customer</p>
           <ResponsiveContainer width='100%' height={200}>
             <LineChart
               width={500}
@@ -564,6 +611,17 @@ export default function Overivew() {
               <XAxis dataKey='id' />
               <YAxis />
               <Tooltip />
+              <Legend
+                formatter={(value, entry, index) => {
+                  if (value === 'A') {
+                    return siteAName
+                  } else if (value === 'B') {
+                    return siteBName
+                  } else {
+                    return value
+                  }
+                }}
+              />
               <Line
                 type='monotone'
                 dataKey='A'
@@ -580,9 +638,9 @@ export default function Overivew() {
           </ResponsiveContainer>
         </div>
 
-        {/*  5th div: weekend footfall line chart */}
-        <div className='bg-white p-4 mt-8 mb-8 rounded-lg shadow-md'>
-          <p className='font-bold'>Weekend Footfall</p>
+        {/*  5th div: weekend Customer line chart */}
+        <div className='text-black bg-card border-2  p-4 mt-8 mb-8 rounded-lg shadow-md  text-center'>
+          <p className='font-bold mb-10 text-lg'>Weekend Customer</p>
           <ResponsiveContainer width='100%' height={200}>
             <LineChart
               width={500}
@@ -599,6 +657,17 @@ export default function Overivew() {
               <XAxis dataKey='id' />
               <YAxis />
               <Tooltip />
+              <Legend
+                formatter={(value, entry, index) => {
+                  if (value === 'A') {
+                    return siteAName
+                  } else if (value === 'B') {
+                    return siteBName
+                  } else {
+                    return value
+                  }
+                }}
+              />
               <Line
                 type='monotone'
                 dataKey='A'

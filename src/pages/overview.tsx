@@ -21,6 +21,7 @@ import {
 } from 'recharts'
 
 import { AreaChart, Area } from 'recharts'
+import { TfiHandPointRight } from 'react-icons/tfi'
 
 interface Sites {
   place: string
@@ -196,14 +197,23 @@ export default function Overivew() {
       const { avgprice, avgcount } = sites[selectedSiteIndex]
 
       return (
-        <div className='flex flex-col md:flex-row justify-center items-center'>
-          <div className='bg-blue-100 p-4 m-2 rounded-lg shadow-md w-full md:w-auto'>
-            <h3 className='text-lg font-bold'>Average Ticket Size</h3>
-            <p className='text-xl'>{avgprice.toFixed(2)}</p>
+        <div className='space-y-4'>
+          <div className='bg-card bg-violet-300 border-2 p-4 m-2 rounded-lg shadow-md w-full h-36 flex flex-col justify-center items-center gap-4'>
+            <div className='text-lg  font-bold text-black'>
+              Avg. Ticket Size
+            </div>
+            <p className='text-4xl font-bold text-black'>
+              ${avgprice.toFixed(0)}
+            </p>
           </div>
-          <div className='bg-blue-100 p-4 m-2 rounded-lg shadow-md w-full md:w-auto'>
-            <h3 className='text-lg font-bold'>Average Ticket Count</h3>
-            <p className='text-xl'>{avgcount.toFixed(0)}</p>
+
+          <div className='bg-card bg-violet-300 border-2 p-4 m-2 rounded-lg shadow-md w-full h-36 flex flex-col justify-center items-center gap-4'>
+            <div className='text-lg font-bold text-black'>
+              Avg. Ticket Count
+            </div>
+            <p className='text-4xl font-bold text-black'>
+              #{avgcount.toFixed(0)}
+            </p>
           </div>
         </div>
       )
@@ -281,30 +291,52 @@ export default function Overivew() {
     return []
   }
 
+  const CustomLegend = () => {
+    return (
+      <div className='w-full flex justify-center mt-6'>
+        <div className='text-sm font-bold text-center'>
+          {sites[selectedSiteIndex]?.place ?? 'Site'}
+        </div>
+      </div>
+    )
+  }
+
   return (
-    <div className='bg-gray-100 min-h-screen'>
+    <div className='bg-background min-h-screen'>
       <main className='container mx-auto p-4'>
-        <h1 className='text-3xl font-bold mb-4'>Store Overview</h1>
-        <div className='bg-white p-4 rounded-lg shadow-md'>
-          <label htmlFor='site-select' className='font-bold'>
-            Select a Store:
+        <div className='text-black bg-card border-2 mt-4 p-6 rounded-lg shadow-md flex items-center'>
+          <label htmlFor='site-select' className='text-xl font-bold'>
+            Select a Store
           </label>
-          <select
-            id='site-select'
-            onChange={handleSiteChange}
-            className='ml-2 p-1 border rounded'
-          >
-            {sites.map((site, index) => (
-              <option key={index} value={index}>
-                {site.place}
-              </option>
-            ))}
-          </select>
+
+          <div className='relative'>
+            <select
+              id='site-select'
+              onChange={handleSiteChange}
+              className='appearance-none ml-4 p-2 pl-4 pr-10 bg-card border-2 border-black rounded-lg text-2xl font-bold focus:outline-none focus:border-black hover:border-black transition-all'
+            >
+              {sites.map((site, index) => (
+                <option key={index} value={index}>
+                  {site.place}
+                </option>
+              ))}
+            </select>
+
+            <div className='pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-black'>
+              <svg
+                className='w-10 h-10'
+                fill='currentColor'
+                viewBox='0 0 20 20'
+              >
+                <path d='M5 8l5 5 5-5H5z' />
+              </svg>
+            </div>
+          </div>
         </div>
         <div className='grid grid-cols-1 md:grid-cols-3 gap-4 mt-8'>
           {/* 1st div: radar chart */}
-          <div className='bg-white p-4 rounded-lg shadow-md'>
-            <p className='font-bold'>Demographics</p>
+          <div className='text-black bg-card border-2 p-4 rounded-lg shadow-md text-center'>
+            <p className='font-bold mb-10 text-lg'>Demographics</p>
             <ResponsiveContainer width='100%' height={500}>
               <RadarChart
                 cx='50%'
@@ -317,8 +349,9 @@ export default function Overivew() {
                 <PolarGrid />
                 <PolarAngleAxis dataKey='id' />
                 <PolarRadiusAxis />
+                <Legend content={<CustomLegend />} />
                 <Radar
-                  name='和平'
+                  name={sites[selectedSiteIndex]?.place ?? 'Site'}
                   dataKey='A'
                   stroke='#8884d8'
                   fill='#8884d8'
@@ -328,8 +361,8 @@ export default function Overivew() {
             </ResponsiveContainer>
           </div>
           {/* 2nd div: bar chart */}
-          <div className='bg-white p-4 rounded-lg shadow-md'>
-            <p className='font-bold'>Point of Interests</p>
+          <div className='text-black bg-card border-2 p-4 rounded-lg shadow-md  text-center'>
+            <p className='font-bold mb-10 text-lg'>Item Sold</p>
             <ResponsiveContainer width='100%' height={500}>
               <BarChart
                 width={500}
@@ -345,22 +378,24 @@ export default function Overivew() {
                 <CartesianGrid strokeDasharray='3 3' />
                 <XAxis dataKey='id' />
                 <YAxis />
-                <Tooltip />
-                <Legend />
+
+                <Legend content={<CustomLegend />} />
                 <Bar dataKey='A' fill='#8884d8' />
               </BarChart>
             </ResponsiveContainer>
           </div>
 
-          <div className='bg-white p-4 rounded-lg shadow-md'>
-            <p className='font-bold'>Ticket Count/Size</p>
+          <div className='text-black bg-card border-2 p-4 rounded-lg shadow-md text-center flex flex-col'>
+            <p className='font-bold mb-20 text-lg'>
+              Ticket Count & Ticket Size
+            </p>
             <InfoCard />
           </div>
         </div>
 
-        {/* 4th div: weekday footfall line chart */}
-        <div className='bg-white p-4 mt-8 rounded-lg shadow-md'>
-          <p className='font-bold'>Weekday Footfall</p>
+        {/* 4th div: weekday customer line chart */}
+        <div className='text-black bg-card border-2 p-4 mt-8 rounded-lg shadow-md text-center'>
+          <p className='font-bold mb-10 text-lg'>Weekday Customer</p>
           <ResponsiveContainer width='100%' height={200}>
             <AreaChart
               width={500}
@@ -377,6 +412,7 @@ export default function Overivew() {
               <XAxis dataKey='id' />
               <YAxis />
               <Tooltip />
+              <Legend content={<CustomLegend />} />
               <Area
                 type='monotone'
                 dataKey='A' //
@@ -387,9 +423,9 @@ export default function Overivew() {
           </ResponsiveContainer>
         </div>
 
-        {/* 5th div: weekend footfall line chart*/}
-        <div className='bg-white p-4 mt-8 mb-8 rounded-lg shadow-md'>
-          <p className='font-bold'>Weekend Footfall</p>
+        {/* 5th div: weekend customer line chart*/}
+        <div className='text-black bg-card border-2  p-4 mt-8 mb-8 rounded-lg shadow-md  text-center'>
+          <p className='font-bold mb-10 text-lg'>Weekend Customer</p>
           <ResponsiveContainer width='100%' height={200}>
             <AreaChart
               width={500}
@@ -406,6 +442,7 @@ export default function Overivew() {
               <XAxis dataKey='id' />
               <YAxis />
               <Tooltip />
+              <Legend content={<CustomLegend />} />
               <Area
                 type='monotone'
                 dataKey='A' //
