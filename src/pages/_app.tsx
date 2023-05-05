@@ -4,20 +4,24 @@ import Sidebar from '../components/Sidebar'
 import UserProfile from '../components/UserProfile'
 import { useState } from 'react'
 import { MdMenu, MdOutlineAccountBox } from 'react-icons/md'
+import { useRouter } from 'next/router'
 
 function MyApp({ Component, pageProps }: AppProps) {
   const [showSidebar, setShowSidebar] = useState(false)
   const [showUserProfile, setShowUserProfile] = useState(false)
+  const router = useRouter()
 
   return (
     <div className='flex min-h-screen'>
-      <Sidebar
-        show={showSidebar}
-        onToggle={() => setShowSidebar(!showSidebar)}
-      />
+      {router.pathname !== '/' && (
+        <Sidebar
+          show={showSidebar}
+          onToggle={() => setShowSidebar(!showSidebar)}
+        />
+      )}
       <div className='flex flex-grow'>
         <div className='flex flex-col w-full'>
-          <header className='flex justify-between items-center p-4 md:hidden bg-black'>
+          <header className='flex justify-between items-center p-4 md:hidden bg-black border-b border-gray-100'>
             <button
               onClick={() => setShowSidebar(!showSidebar)}
               className='md:hidden text-gray-700'
@@ -36,10 +40,12 @@ function MyApp({ Component, pageProps }: AppProps) {
           </main>
         </div>
       </div>
-      <UserProfile
-        show={showUserProfile}
-        onToggle={() => setShowUserProfile(!showUserProfile)}
-      />
+      {router.pathname !== '/' && (
+        <UserProfile
+          show={showUserProfile}
+          onToggle={() => setShowUserProfile(!showUserProfile)}
+        />
+      )}
     </div>
   )
 }

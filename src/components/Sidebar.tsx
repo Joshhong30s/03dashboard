@@ -33,21 +33,23 @@ const Sidebar: React.FC<SidebarProps> = ({ show, onToggle }) => {
       </button>
       <div className='space-y-10 flex flex-col items-center'>
         <h2 className='text-3xl font-extrabold text-white text-center'>
-          Coffee Master
+          Coffee Manager
         </h2>
-        <Image
-          src='/logo.svg'
-          alt='logo'
-          width={120}
-          height={120}
-          className='text-center'
-        />
+        <Link href='/'>
+          <Image
+            src='/logo.svg'
+            alt='logo'
+            width={120}
+            height={120}
+            className='text-center'
+          />
+        </Link>
       </div>
       <nav className='flex flex-col space-y-6 items-center md:items-start justify-center'>
         <div className={navItemClasses}>
           <MdOutlineStore size={24} className='text-gray-300' />
           <Link
-            href='/'
+            href='/overview'
             className='text-base font-medium text-gray-300 hover:text-white transition-colors hover:scale-110'
           >
             Store Overview
