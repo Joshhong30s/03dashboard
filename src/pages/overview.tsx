@@ -353,7 +353,7 @@ export default function Overivew() {
                   width={500}
                   height={500}
                   data={radar()}
-                  margin={{ top: 10, right: 25, bottom: 20, left: 25 }}
+                  margin={{ top: 5, right: 30, bottom: 5, left: 30 }}
                 >
                   <PolarGrid />
                   <PolarAngleAxis dataKey='id' />
