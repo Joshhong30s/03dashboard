@@ -520,7 +520,7 @@ export default function Overivew() {
         <div className='grid grid-cols-1 md:grid-cols-3 gap-4 mt-8'>
           {/* 1st div: radar chart */}
 
-          <div className='text-black bg-card border-2 p-4 rounded-lg shadow-md text-center'>
+          <div className='text-black bg-gray-100 border-2 p-6 mt-8  rounded-lg shadow-md text-center'>
             <p className='font-bold mb-10 text-lg'>Demographics</p>
             <ResponsiveContainer width='100%' height={500}>
               <RadarChart
