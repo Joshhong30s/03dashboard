@@ -198,7 +198,7 @@ export default function Overivew() {
 
       return (
         <div className='space-y-4'>
-          <div className='bg-card bg-violet-300 border-2 p-4 m-2 rounded-lg shadow-md w-full h-36 flex flex-col justify-center items-center gap-4'>
+          <div className='bg-gray-200 bg-violet-300 border-2 p-4 m-2 rounded-lg shadow-md w-full h-36 flex flex-col justify-center items-center gap-4'>
             <div className='text-lg  font-bold text-black'>
               Avg. Ticket Size
             </div>
@@ -207,7 +207,7 @@ export default function Overivew() {
             </p>
           </div>
 
-          <div className='bg-card bg-violet-300 border-2 p-4 m-2 rounded-lg shadow-md w-full h-36 flex flex-col justify-center items-center gap-4'>
+          <div className='bg-gray-200 bg-violet-300 border-2 p-4 m-2 rounded-lg shadow-md w-full h-36 flex flex-col justify-center items-center gap-4'>
             <div className='text-lg font-bold text-black'>
               Avg. Ticket Count
             </div>
@@ -309,12 +309,12 @@ export default function Overivew() {
   return (
     <div className='bg-black min-h-screen'>
       <main className='container mx-auto p-8'>
-        <div className='text-black bg-card border-2 mt-4 rounded-md shadow-md flex justify-between items-center'>
+        <div className='text-black bg-gray-200 border-2 mt-4 rounded-md shadow-md flex justify-between items-center'>
           <div className='relative w-full'>
             <select
               id='site-select'
               onChange={handleSiteChange}
-              className='appearance-none py-4 px-2 pr-12 w-full h-full bg-card rounded-lg text-xl text-center font-bold focus:outline-none focus:border-black hover:border-black transition-all'
+              className='appearance-none py-4 px-2 pr-12 w-full h-full bg-gray-200 rounded-lg text-xl text-center font-bold focus:outline-none focus:border-black hover:border-black transition-all'
             >
               {sites.map((site, index) => (
                 <option key={index} value={index}>
@@ -343,7 +343,7 @@ export default function Overivew() {
         ) : (
           <div className='grid grid-cols-1 md:grid-cols-3 gap-4 mt-8'>
             {/* 1st div: radar chart */}
-            <div className='text-black bg-card border-2 p-6 mt-8 rounded-lg shadow-md text-center'>
+            <div className='text-black bg-gray-200 border-2 p-6 mt-8 rounded-lg shadow-md text-center'>
               <p className='font-bold mb-10 text-lg'>Demographics</p>
               <ResponsiveContainer width='100%' height={500}>
                 <RadarChart
@@ -369,7 +369,7 @@ export default function Overivew() {
               </ResponsiveContainer>
             </div>
             {/* 2nd div: bar chart */}
-            <div className='text-black bg-card border-2 p-6 mt-8 rounded-lg shadow-md text-center'>
+            <div className='text-black bg-gray-200 border-2 p-6 mt-8 rounded-lg shadow-md text-center'>
               <p className='font-bold mb-10 text-lg'>Item Sold</p>
               <ResponsiveContainer width='100%' height={500}>
                 <BarChart
@@ -393,7 +393,7 @@ export default function Overivew() {
               </ResponsiveContainer>
             </div>
 
-            <div className='text-black bg-card border-2  p-6 mt-8 rounded-lg shadow-md text-center flex flex-col'>
+            <div className='text-black bg-gray-200 border-2  p-6 mt-8 rounded-lg shadow-md text-center flex flex-col'>
               <p className='font-bold mb-20 text-lg'>
                 Ticket Count & Ticket Size
               </p>
@@ -402,7 +402,7 @@ export default function Overivew() {
           </div>
         )}
         {/* 4th div: weekday customer line chart */}
-        <div className='text-black bg-card border-2  p-6 mt-8 rounded-lg shadow-md text-center'>
+        <div className='text-black bg-gray-200 border-2  p-6 mt-8 rounded-lg shadow-md text-center'>
           <p className='font-bold mb-10 text-lg'>Weekday Customer</p>
           <ResponsiveContainer width='100%' height={200}>
             <AreaChart
@@ -432,7 +432,7 @@ export default function Overivew() {
         </div>
 
         {/* 5th div: weekend customer line chart*/}
-        <div className='text-black bg-card border-2   p-6 mt-8 mb-8 rounded-lg shadow-md  text-center'>
+        <div className='text-black bg-gray-200 border-2   p-6 mt-8 mb-8 rounded-lg shadow-md  text-center'>
           <p className='font-bold mb-10 text-lg'>Weekend Customer</p>
           <ResponsiveContainer width='100%' height={200}>
             <AreaChart
