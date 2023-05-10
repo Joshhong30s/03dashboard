@@ -348,10 +348,10 @@ export default function Overivew() {
               <ResponsiveContainer width='100%' height={500}>
                 <RadarChart
                   cx='50%'
-                  cy='80%'
+                  cy='50%'
                   outerRadius='60%'
                   width={500}
-                  height={500}
+                  height={800}
                   data={radar()}
                   margin={{ top: 5, right: 30, bottom: 5, left: 30 }}
                 >
