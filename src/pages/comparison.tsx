@@ -471,7 +471,7 @@ export default function Overivew() {
     <div className='bg-black min-h-screen'>
       <main className='container mx-auto p-8'>
         <div className='text-black bg-gray-100 border-2 mt-4 rounded-md shadow-md flex justify-between items-center'>
-          <div className='relative w-5/12 border-2 rounded-lg'>
+          <div className='relative w-5/12 '>
             <select
               id='site-select-A'
               onChange={handleSiteAChange}
@@ -494,7 +494,7 @@ export default function Overivew() {
             </div>
           </div>
 
-          <div className='relative w-5/12 border-2 rounded-lg '>
+          <div className='relative w-5/12  '>
             <select
               id='site-select-B'
               onChange={handleSiteBChange}
@@ -530,6 +530,7 @@ export default function Overivew() {
                 width={500}
                 height={500}
                 data={radar()}
+                margin={{ top: 10, right: 30, bottom: 20, left: 30 }}
               >
                 <PolarGrid />
                 <PolarAngleAxis dataKey='id' />
