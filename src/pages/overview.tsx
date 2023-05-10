@@ -349,7 +349,7 @@ export default function Overivew() {
                 <RadarChart
                   cx='50%'
                   cy='50%'
-                  outerRadius='80%'
+                  outerRadius='60%'
                   width={500}
                   height={500}
                   data={radar()}
@@ -365,6 +365,7 @@ export default function Overivew() {
                     stroke={blue[500]}
                     fill={blue[500]}
                     fillOpacity={0.6}
+                    className='text-sm'
                   />
                 </RadarChart>
               </ResponsiveContainer>
