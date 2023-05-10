@@ -542,8 +542,8 @@ export default function Overivew() {
                 />
                 <Radar
                   dataKey='B'
-                  stroke='#82ca9d'
-                  fill='#82ca9d'
+                  stroke={orange[500]}
+                  fill={orange[500]}
                   fillOpacity={0.4}
                 />
                 <Tooltip />

@@ -198,7 +198,7 @@ export default function Overivew() {
 
       return (
         <div className='space-y-4'>
-          <div className='bg-blue-500 border-2 p-4 m-2 rounded-lg shadow-md w-full h-1/2 flex flex-col justify-center items-center gap-4'>
+          <div className='bg-blue-500 border-2 p-4 m-2 rounded-lg shadow-md w-full md:h-1/2 flex flex-col justify-center items-center gap-4'>
             <div className='text-lg  font-bold text-black'>
               Avg. Ticket Size
             </div>
@@ -207,7 +207,7 @@ export default function Overivew() {
             </p>
           </div>
 
-          <div className='bg-blue-500  border-2 p-4 m-2 rounded-lg shadow-md w-full h-1/2 flex flex-col justify-center items-center gap-4'>
+          <div className='bg-blue-500  border-2 p-4 m-2 rounded-lg shadow-md w-full md:h-1/2 flex flex-col justify-center items-center gap-4'>
             <div className='text-lg font-bold text-black'>
               Avg. Ticket Count
             </div>
