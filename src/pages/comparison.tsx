@@ -475,7 +475,7 @@ export default function Overivew() {
             <select
               id='site-select-A'
               onChange={handleSiteAChange}
-              className='appearance-none py-4 px-4 w-full h-full rounded-lg text-xl  text-center font-bold focus:outline-none focus:border-black hover:border-black transition-all'
+              className='appearance-none py-4 px-4 w-full h-full rounded-lg text-xl  text-center font-bold focus:outline-none bg-gray-100  focus:border-black hover:border-black transition-all'
             >
               {sites.map((site, index) => (
                 <option key={index} value={index}>
@@ -498,7 +498,7 @@ export default function Overivew() {
             <select
               id='site-select-B'
               onChange={handleSiteBChange}
-              className='appearance-none py-4 px-4 w-full h-full rounded-lg text-xl text-center font-bold focus:outline-none focus:border-black hover:border-black transition-all'
+              className='appearance-none py-4 px-4 w-full h-full rounded-lg text-xl text-center font-bold focus:outline-none bg-gray-100  focus:border-black hover:border-black transition-all'
             >
               {sites.map((site, index) => (
                 <option key={index} value={index}>

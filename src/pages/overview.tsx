@@ -343,8 +343,8 @@ export default function Overivew() {
         ) : (
           <div className='grid grid-cols-1 md:grid-cols-3 gap-4 mt-8'>
             {/* 1st div: radar chart */}
-            <div className='text-black bg-gray-100 border-2 p-6 mt-8 rounded-lg shadow-md text-center'>
-              <p className='font-bold mb-10 text-lg'>Demographics</p>
+            <div className='text-black bg-gray-100 border-2 p-4 mt-8 rounded-lg shadow-md text-center'>
+              <p className='font-bold mb-6 text-lg'>Demographics</p>
               <ResponsiveContainer width='100%' height={500}>
                 <RadarChart
                   cx='50%'
@@ -353,6 +353,7 @@ export default function Overivew() {
                   width={500}
                   height={500}
                   data={radar()}
+                  margin={{ top: 20, right: 20, bottom: 20, left: 20 }}
                 >
                   <PolarGrid />
                   <PolarAngleAxis dataKey='id' />
@@ -369,8 +370,8 @@ export default function Overivew() {
               </ResponsiveContainer>
             </div>
             {/* 2nd div: bar chart */}
-            <div className='text-black bg-gray-100 border-2 p-6 mt-8 rounded-lg shadow-md text-center'>
-              <p className='font-bold mb-10 text-lg'>Item Sold</p>
+            <div className='text-black bg-gray-100 border-2 p-4 mt-8 rounded-lg shadow-md text-center'>
+              <p className='font-bold mb-6 text-lg'>Item Sold</p>
               <ResponsiveContainer width='100%' height={500}>
                 <BarChart
                   width={500}
@@ -378,8 +379,8 @@ export default function Overivew() {
                   data={bar()}
                   margin={{
                     top: 5,
-                    right: 30,
-                    left: 20,
+                    right: 20,
+                    left: 10,
                     bottom: 5,
                   }}
                 >
@@ -393,8 +394,8 @@ export default function Overivew() {
               </ResponsiveContainer>
             </div>
 
-            <div className='text-black bg-gray-100 border-2  p-6 mt-8 rounded-lg shadow-md text-center flex flex-col'>
-              <p className='font-bold mb-20 text-lg'>
+            <div className='text-black bg-gray-100 border-2  p-4 mt-8 rounded-lg shadow-md text-center flex flex-col'>
+              <p className='font-bold mb-6 text-lg'>
                 Ticket Count & Ticket Size
               </p>
               <InfoCard />
@@ -402,9 +403,9 @@ export default function Overivew() {
           </div>
         )}
         {/* 4th div: weekday customer line chart */}
-        <div className='text-black bg-gray-100 border-2  p-6 mt-8 rounded-lg shadow-md text-center'>
-          <p className='font-bold mb-10 text-lg'>Weekday Customer</p>
-          <ResponsiveContainer width='100%' height={200}>
+        <div className='text-black bg-gray-100 border-2  p-4 mt-8 rounded-lg shadow-md text-center'>
+          <p className='font-bold mb-6 text-lg'>Weekday Customer</p>
+          <ResponsiveContainer width='100%' height={300}>
             <AreaChart
               width={500}
               height={400}
@@ -432,9 +433,9 @@ export default function Overivew() {
         </div>
 
         {/* 5th div: weekend customer line chart*/}
-        <div className='text-black bg-gray-100 border-2   p-6 mt-8 mb-8 rounded-lg shadow-md  text-center'>
-          <p className='font-bold mb-10 text-lg'>Weekend Customer</p>
-          <ResponsiveContainer width='100%' height={200}>
+        <div className='text-black bg-gray-100 border-2   p-4 mt-8 mb-8 rounded-lg shadow-md  text-center'>
+          <p className='font-bold mb-6 text-lg'>Weekend Customer</p>
+          <ResponsiveContainer width='100%' height={300}>
             <AreaChart
               width={500}
               height={400}
