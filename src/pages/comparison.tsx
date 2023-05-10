@@ -1,7 +1,15 @@
 import { useState, useEffect } from 'react'
 import React, { ChangeEvent } from 'react'
 import { AreaChart, Area } from 'recharts'
-import { TfiHandPointRight } from 'react-icons/tfi'
+import {
+  blue,
+  gray,
+  green,
+  purple,
+  red,
+  yellow,
+  orange,
+} from 'tailwindcss/colors'
 import {
   RadarChart,
   PolarGrid,
@@ -249,7 +257,7 @@ export default function Overivew() {
       return (
         <div className='grid grid-cols-1 md:grid-cols-1 gap-4'>
           {/* Site A Average Ticket Size */}
-          <div className='bg-card bg-violet-300 border-2 p-4 m-2 rounded-lg shadow-md w-full flex-grow flex flex-col justify-center items-center gap-4'>
+          <div className='bg-blue-500  border-2 p-4 m-2 rounded-lg shadow-md w-full flex-grow flex flex-col justify-center items-center gap-4'>
             <div className='text-base md:text-lg font-bold text-black'>
               Avg. Ticket Size {siteAName}
             </div>
@@ -259,7 +267,7 @@ export default function Overivew() {
           </div>
 
           {/* Site A Average Ticket Count */}
-          <div className='bg-card bg-violet-300 border-2 p-4 m-2 rounded-lg shadow-md w-full flex-grow flex flex-col justify-center items-center gap-4'>
+          <div className='bg-blue-500  border-2 p-4 m-2 rounded-lg shadow-md w-full flex-grow flex flex-col justify-center items-center gap-4'>
             <div className='text-base md:text-lg font-bold text-black'>
               Avg. Ticket Count {siteAName}
             </div>
@@ -269,7 +277,7 @@ export default function Overivew() {
           </div>
 
           {/* Site B Average Ticket Size */}
-          <div className='bg-card bg-green-200 border-2 p-4 m-2 rounded-lg shadow-md w-full flex-grow flex flex-col justify-center items-center gap-4'>
+          <div className='bg-card bg-orange-500 border-2 p-4 m-2 rounded-lg shadow-md w-full flex-grow flex flex-col justify-center items-center gap-4'>
             <div className='text-base md:text-lg font-bold text-black'>
               Avg. Ticket Size {siteBName}
             </div>
@@ -279,7 +287,7 @@ export default function Overivew() {
           </div>
 
           {/* Site B Average Ticket Count */}
-          <div className='bg-card bg-green-200 border-2 p-4 m-2 rounded-lg shadow-md w-full flex-grow flex flex-col justify-center items-center gap-4'>
+          <div className='bg-card bg-orange-500 border-2 p-4 m-2 rounded-lg shadow-md w-full flex-grow flex flex-col justify-center items-center gap-4'>
             <div className='text-base md:text-lg font-bold text-black'>
               Avg. Ticket Count {siteBName}
             </div>
@@ -454,10 +462,15 @@ export default function Overivew() {
     }
   }
 
+  const axisStyle = {
+    fontFamily: 'sans-serif',
+    fontSize: '12px',
+  }
+
   return (
-    <div className='bg-background min-h-screen'>
-      <main className='container mx-auto p-4'>
-        <div className='text-black bg-card mt-4 rounded-md flex justify-between items-center'>
+    <div className='bg-black min-h-screen'>
+      <main className='container mx-auto p-8'>
+        <div className='text-black bg-gray-100 border-2 mt-4 rounded-md shadow-md flex justify-between items-center'>
           <div className='relative w-5/12 border-2 rounded-lg'>
             <select
               id='site-select-A'
@@ -523,9 +536,9 @@ export default function Overivew() {
                 <PolarRadiusAxis angle={30} domain={[0, 150]} />
                 <Radar
                   dataKey='A'
-                  stroke='#8884d8'
-                  fill='#8884d8'
-                  fillOpacity={0.4}
+                  stroke={blue[500]}
+                  fill={blue[500]}
+                  fillOpacity={0.6}
                 />
                 <Radar
                   dataKey='B'
@@ -550,7 +563,7 @@ export default function Overivew() {
           </div>
 
           {/* 2nd div: bar chart */}
-          <div className='text-black bg-card border-2 p-4 rounded-lg shadow-md  text-center'>
+          <div className='text-black bg-gray-100 border-2 p-6 mt-8  rounded-lg shadow-md  text-center'>
             <p className='font-bold mb-10 text-lg'>Item Sold</p>
             <ResponsiveContainer width='100%' height={500}>
               <BarChart
@@ -565,8 +578,8 @@ export default function Overivew() {
                 }}
               >
                 <CartesianGrid strokeDasharray='3 3' />
-                <XAxis dataKey='id' />
-                <YAxis />
+                <XAxis dataKey='id' style={axisStyle} />
+                <YAxis style={axisStyle} />
                 <Tooltip />
                 <Legend
                   formatter={(value, entry, index) => {
@@ -579,13 +592,13 @@ export default function Overivew() {
                     }
                   }}
                 />
-                <Bar dataKey='A' fill='#8884d8'></Bar>
-                <Bar dataKey='B' fill='#82ca9d'></Bar>
+                <Bar dataKey='A' fill={blue[500]}></Bar>
+                <Bar dataKey='B' fill={orange[500]}></Bar>
               </BarChart>
             </ResponsiveContainer>
           </div>
 
-          <div className='text-black bg-card border-2 p-4 rounded-lg shadow-md text-center flex flex-col'>
+          <div className='text-black  bg-gray-100 border-2  p-6 mt-8 rounded-lg shadow-md text-center flex flex-col'>
             <p className='font-bold  mb-6 text-lg'>
               Ticket Count & Ticket Size
             </p>
@@ -594,7 +607,7 @@ export default function Overivew() {
         </div>
 
         {/* 4th div: weekday customer line chart */}
-        <div className='text-black bg-card border-2 p-4 mt-8 rounded-lg shadow-md text-center'>
+        <div className='text-black bg-gray-100 border-2  p-6 mt-8 rounded-lg shadow-md text-center'>
           <p className='font-bold mb-10 text-lg'>Weekday Customer</p>
           <ResponsiveContainer width='100%' height={200}>
             <LineChart
@@ -609,8 +622,8 @@ export default function Overivew() {
               }}
             >
               <CartesianGrid strokeDasharray='3 3' />
-              <XAxis dataKey='id' />
-              <YAxis />
+              <XAxis dataKey='id' style={axisStyle} />
+              <YAxis style={axisStyle} />
               <Tooltip />
               <Legend
                 formatter={(value, entry, index) => {
@@ -626,13 +639,13 @@ export default function Overivew() {
               <Line
                 type='monotone'
                 dataKey='A'
-                stroke='#8884d8'
+                stroke={blue[500]}
                 activeDot={{ r: 8 }}
               />
               <Line
                 type='monotone'
                 dataKey='B'
-                stroke='#82ca9d'
+                stroke={orange[500]}
                 activeDot={{ r: 8 }}
               />
             </LineChart>
@@ -640,7 +653,7 @@ export default function Overivew() {
         </div>
 
         {/*  5th div: weekend Customer line chart */}
-        <div className='text-black bg-card border-2  p-4 mt-8 mb-8 rounded-lg shadow-md  text-center'>
+        <div className='text-black bg-gray-100 border-2   p-6 mt-8 mb-8 rounded-lg shadow-md  text-center'>
           <p className='font-bold mb-10 text-lg'>Weekend Customer</p>
           <ResponsiveContainer width='100%' height={200}>
             <LineChart
@@ -655,8 +668,8 @@ export default function Overivew() {
               }}
             >
               <CartesianGrid strokeDasharray='3 3' />
-              <XAxis dataKey='id' />
-              <YAxis />
+              <XAxis dataKey='id' style={axisStyle} />
+              <YAxis style={axisStyle} />
               <Tooltip />
               <Legend
                 formatter={(value, entry, index) => {
@@ -672,13 +685,13 @@ export default function Overivew() {
               <Line
                 type='monotone'
                 dataKey='A'
-                stroke='#8884d8'
+                stroke={blue[500]}
                 activeDot={{ r: 8 }}
               />
               <Line
                 type='monotone'
                 dataKey='B'
-                stroke='#82ca9d'
+                stroke={orange[500]}
                 activeDot={{ r: 8 }}
               />
             </LineChart>

@@ -198,7 +198,7 @@ export default function Overivew() {
 
       return (
         <div className='space-y-4'>
-          <div className='bg-blue-700 border-2 p-4 m-2 rounded-lg shadow-md w-full h-36 flex flex-col justify-center items-center gap-4'>
+          <div className='bg-blue-500 border-2 p-4 m-2 rounded-lg shadow-md w-full h-1/2 flex flex-col justify-center items-center gap-4'>
             <div className='text-lg  font-bold text-black'>
               Avg. Ticket Size
             </div>
@@ -207,7 +207,7 @@ export default function Overivew() {
             </p>
           </div>
 
-          <div className='bg-blue-700  border-2 p-4 m-2 rounded-lg shadow-md w-full h-36 flex flex-col justify-center items-center gap-4'>
+          <div className='bg-blue-500  border-2 p-4 m-2 rounded-lg shadow-md w-full h-1/2 flex flex-col justify-center items-center gap-4'>
             <div className='text-lg font-bold text-black'>
               Avg. Ticket Count
             </div>
@@ -361,8 +361,8 @@ export default function Overivew() {
                   <Radar
                     name={sites[selectedSiteIndex]?.place ?? 'Site'}
                     dataKey='A'
-                    stroke={blue[700]}
-                    fill={blue[700]}
+                    stroke={blue[500]}
+                    fill={blue[500]}
                     fillOpacity={0.6}
                   />
                 </RadarChart>
@@ -388,7 +388,7 @@ export default function Overivew() {
                   <YAxis style={axisStyle} />
 
                   <Legend content={<CustomLegend />} />
-                  <Bar dataKey='A' fill={blue[700]} />
+                  <Bar dataKey='A' fill={blue[500]} />
                 </BarChart>
               </ResponsiveContainer>
             </div>
@@ -424,8 +424,8 @@ export default function Overivew() {
               <Area
                 type='monotone'
                 dataKey='A' //
-                stroke={blue[700]}
-                fill={blue[700]}
+                stroke={blue[500]}
+                fill={blue[500]}
               />
             </AreaChart>
           </ResponsiveContainer>
@@ -447,15 +447,15 @@ export default function Overivew() {
               }}
             >
               <CartesianGrid strokeDasharray='3 3' />
-              <XAxis dataKey='id' />
+
               <XAxis dataKey='id' style={axisStyle} />
               <YAxis style={axisStyle} />
               <Legend content={<CustomLegend />} />
               <Area
                 type='monotone'
                 dataKey='A' //
-                stroke={blue[700]}
-                fill={blue[700]}
+                stroke={blue[500]}
+                fill={blue[500]}
               />
             </AreaChart>
           </ResponsiveContainer>
