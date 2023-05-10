@@ -348,7 +348,7 @@ export default function Overivew() {
               <ResponsiveContainer width='100%' height={500}>
                 <RadarChart
                   cx='50%'
-                  cy='50%'
+                  cy='80%'
                   outerRadius='60%'
                   width={500}
                   height={500}
@@ -397,7 +397,15 @@ export default function Overivew() {
                   <XAxis dataKey='id' style={axisStyle} />
                   <YAxis style={axisStyle} />
 
-                  <Legend content={<CustomLegend />} />
+                  <Legend
+                    formatter={(value, entry, index) => {
+                      if (value === 'A') {
+                        return siteName
+                      } else {
+                        return value
+                      }
+                    }}
+                  />
                   <Bar dataKey='A' fill={blue[500]} />
                 </BarChart>
               </ResponsiveContainer>
@@ -430,7 +438,15 @@ export default function Overivew() {
               <XAxis dataKey='id' style={axisStyle} />
               <YAxis style={axisStyle} />
               <Tooltip />
-              <Legend content={<CustomLegend />} />
+              <Legend
+                formatter={(value, entry, index) => {
+                  if (value === 'A') {
+                    return siteName
+                  } else {
+                    return value
+                  }
+                }}
+              />
               <Area
                 type='monotone'
                 dataKey='A' //
@@ -460,7 +476,15 @@ export default function Overivew() {
 
               <XAxis dataKey='id' style={axisStyle} />
               <YAxis style={axisStyle} />
-              <Legend content={<CustomLegend />} />
+              <Legend
+                formatter={(value, entry, index) => {
+                  if (value === 'A') {
+                    return siteName
+                  } else {
+                    return value
+                  }
+                }}
+              />
               <Area
                 type='monotone'
                 dataKey='A' //
