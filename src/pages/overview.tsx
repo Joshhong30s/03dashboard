@@ -336,8 +336,8 @@ export default function Overivew() {
         </div>
 
         {loading ? (
-          <div className='flex justify-center items-center h-64'>
-            <span className='animate-spin rounded-full h-16 w-16 border-t-2 border-b-2 border-gray-900'></span>
+          <div className='flex justify-center items-center space-x-4 h-64'>
+            <span className='animate-spin rounded-full h-16 w-16 border-t-2 border-b-2 border-white '></span>
             <span className='text-white'>Loading Data, please wait ...</span>
           </div>
         ) : (
