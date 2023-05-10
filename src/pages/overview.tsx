@@ -67,7 +67,7 @@ export default function Overivew() {
   const [sites, setSites] = useState<Sites[]>([])
   const [loading, setLoading] = useState(false)
   const [selectedSiteIndex, setSelectedSiteIndex] = useState(0)
-
+  const siteName = sites[selectedSiteIndex]?.place || ''
   const [refresh, setRefresh] = useState(0)
 
   const handleSiteChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
@@ -358,7 +358,15 @@ export default function Overivew() {
                   <PolarGrid />
                   <PolarAngleAxis dataKey='id' />
                   <PolarRadiusAxis />
-                  <Legend content={<CustomLegend />} />
+                  <Legend
+                    formatter={(value, entry, index) => {
+                      if (value === 'A') {
+                        return siteName
+                      } else {
+                        return value
+                      }
+                    }}
+                  />
                   <Radar
                     name={sites[selectedSiteIndex]?.place ?? 'Site'}
                     dataKey='A'
