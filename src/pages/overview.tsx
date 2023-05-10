@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import { blue, gray, green, purple, red, yellow } from 'tailwindcss/colors'
 
 import {
   RadarChart,
@@ -300,9 +301,14 @@ export default function Overivew() {
     )
   }
 
+  const axisStyle = {
+    fontFamily: 'sans-serif',
+    fontSize: '12px',
+  }
+
   return (
     <div className='bg-black min-h-screen'>
-      <main className='container mx-auto p-4'>
+      <main className='container mx-auto p-8'>
         <div className='text-black bg-card border-2 mt-4 rounded-md shadow-md flex justify-between items-center'>
           <div className='relative w-full'>
             <select
@@ -337,7 +343,7 @@ export default function Overivew() {
         ) : (
           <div className='grid grid-cols-1 md:grid-cols-3 gap-4 mt-8'>
             {/* 1st div: radar chart */}
-            <div className='text-black bg-card border-2 p-4 rounded-lg shadow-md text-center'>
+            <div className='text-black bg-card border-2 p-6 mt-8 rounded-lg shadow-md text-center'>
               <p className='font-bold mb-10 text-lg'>Demographics</p>
               <ResponsiveContainer width='100%' height={500}>
                 <RadarChart
@@ -355,15 +361,15 @@ export default function Overivew() {
                   <Radar
                     name={sites[selectedSiteIndex]?.place ?? 'Site'}
                     dataKey='A'
-                    stroke='#8884d8'
-                    fill='#8884d8'
+                    stroke={purple[500]}
+                    fill={purple[500]}
                     fillOpacity={0.6}
                   />
                 </RadarChart>
               </ResponsiveContainer>
             </div>
             {/* 2nd div: bar chart */}
-            <div className='text-black bg-card border-2 p-4 rounded-lg shadow-md  text-center'>
+            <div className='text-black bg-card border-2 p-6 mt-8 rounded-lg shadow-md text-center'>
               <p className='font-bold mb-10 text-lg'>Item Sold</p>
               <ResponsiveContainer width='100%' height={500}>
                 <BarChart
@@ -378,16 +384,16 @@ export default function Overivew() {
                   }}
                 >
                   <CartesianGrid strokeDasharray='3 3' />
-                  <XAxis dataKey='id' />
-                  <YAxis />
+                  <XAxis dataKey='id' style={axisStyle} />
+                  <YAxis style={axisStyle} />
 
                   <Legend content={<CustomLegend />} />
-                  <Bar dataKey='A' fill='#8884d8' />
+                  <Bar dataKey='A' fill={green[500]} />
                 </BarChart>
               </ResponsiveContainer>
             </div>
 
-            <div className='text-black bg-card border-2 p-4 rounded-lg shadow-md text-center flex flex-col'>
+            <div className='text-black bg-card border-2  p-6 mt-8 rounded-lg shadow-md text-center flex flex-col'>
               <p className='font-bold mb-20 text-lg'>
                 Ticket Count & Ticket Size
               </p>
@@ -396,7 +402,7 @@ export default function Overivew() {
           </div>
         )}
         {/* 4th div: weekday customer line chart */}
-        <div className='text-black bg-card border-2 p-4 mt-8 rounded-lg shadow-md text-center'>
+        <div className='text-black bg-card border-2  p-6 mt-8 rounded-lg shadow-md text-center'>
           <p className='font-bold mb-10 text-lg'>Weekday Customer</p>
           <ResponsiveContainer width='100%' height={200}>
             <AreaChart
@@ -411,22 +417,22 @@ export default function Overivew() {
               }}
             >
               <CartesianGrid strokeDasharray='3 3' />
-              <XAxis dataKey='id' />
-              <YAxis />
+              <XAxis dataKey='id' style={axisStyle} />
+              <YAxis style={axisStyle} />
               <Tooltip />
               <Legend content={<CustomLegend />} />
               <Area
                 type='monotone'
                 dataKey='A' //
-                stroke='#8884d8'
-                fill='#8884d8'
+                stroke={blue[500]}
+                fill={blue[500]}
               />
             </AreaChart>
           </ResponsiveContainer>
         </div>
 
         {/* 5th div: weekend customer line chart*/}
-        <div className='text-black bg-card border-2  p-4 mt-8 mb-8 rounded-lg shadow-md  text-center'>
+        <div className='text-black bg-card border-2   p-6 mt-8 mb-8 rounded-lg shadow-md  text-center'>
           <p className='font-bold mb-10 text-lg'>Weekend Customer</p>
           <ResponsiveContainer width='100%' height={200}>
             <AreaChart
@@ -442,8 +448,8 @@ export default function Overivew() {
             >
               <CartesianGrid strokeDasharray='3 3' />
               <XAxis dataKey='id' />
-              <YAxis />
-              <Tooltip />
+              <XAxis dataKey='id' style={axisStyle} />
+              <YAxis style={axisStyle} />
               <Legend content={<CustomLegend />} />
               <Area
                 type='monotone'
