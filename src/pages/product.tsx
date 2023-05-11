@@ -439,6 +439,7 @@ export default function Product() {
                 <BarChart
                   width={500}
                   height={500}
+                  layout='vertical'
                   data={bar4()}
                   margin={{
                     top: 5,
@@ -448,8 +449,8 @@ export default function Product() {
                   }}
                 >
                   <CartesianGrid strokeDasharray='3 3' />
-                  <XAxis dataKey='id' style={axisStyle} />
-                  <YAxis dataKey='A' style={axisStyle} />
+                  <XAxis type='number' style={axisStyle} />
+                  <YAxis dataKey='id' style={axisStyle} />
                   <Legend
                     formatter={(value, entry, index) => {
                       if (value === 'A') {
