@@ -239,6 +239,7 @@ export default function Product() {
     }
     return []
   }
+  console.log(pie())
 
   const COLORS = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042']
 
@@ -441,7 +442,7 @@ export default function Product() {
                   data={bar4()}
                   margin={{
                     top: 5,
-                    right: 20,
+                    right: 10,
                     left: 10,
                     bottom: 5,
                   }}
