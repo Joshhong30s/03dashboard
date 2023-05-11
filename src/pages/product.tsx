@@ -231,10 +231,10 @@ export default function Product() {
         sites[selectedSiteIndex]
 
       return [
-        { id: 'Coffee', value: { CoffeeRevenue } },
-        { id: 'Bread', value: { BreadRevenue } },
-        { id: 'Desert', value: { DessertRevenue } },
-        { id: 'Pasta', value: { PastaRevenue } },
+        { id: 'Coffee', value: CoffeeRevenue },
+        { id: 'Bread', value: BreadRevenue },
+        { id: 'Desert', value: DessertRevenue },
+        { id: 'Pasta', value: PastaRevenue },
       ]
     }
     return []
