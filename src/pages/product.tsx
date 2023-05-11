@@ -448,9 +448,8 @@ export default function Product() {
                   }}
                 >
                   <CartesianGrid strokeDasharray='3 3' />
-                  <YAxis dataKey='id' style={axisStyle} />
-
-                  <XAxis style={axisStyle} />
+                  <XAxis dataKey='id' style={axisStyle} />
+                  <YAxis dataKey='A' style={axisStyle} />
                   <Legend
                     formatter={(value, entry, index) => {
                       if (value === 'A') {
@@ -470,7 +469,7 @@ export default function Product() {
         {/* 5th div: pie chart */}
         <div className='text-black bg-gray-100 border-2 p-4 mt-8 rounded-lg shadow-md text-center'>
           <p className='font-bold mb-6 text-lg'>Item Sold</p>
-          <ResponsiveContainer width='100%' height='100%'>
+          <ResponsiveContainer width='100%' height={400}>
             <PieChart width={400} height={400}>
               <Pie
                 data={pie()}
