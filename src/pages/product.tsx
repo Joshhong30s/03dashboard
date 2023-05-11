@@ -460,7 +460,8 @@ export default function Product() {
                       }
                     }}
                   />
-                  <Bar dataKey='A' fill={blue[500]} />
+                  <Bar dataKey={siteName} fill={blue[500]} />{' '}
+                  {/* Update dataKey to use siteName */}
                 </BarChart>
               </ResponsiveContainer>
             </div>
