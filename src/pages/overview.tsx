@@ -63,7 +63,7 @@ interface Sites {
   weekend6pm: number
 }
 
-export default function Overivew() {
+export default function Overview() {
   const [sites, setSites] = useState<Sites[]>([])
   const [loading, setLoading] = useState(false)
   const [selectedSiteIndex, setSelectedSiteIndex] = useState(0)
@@ -97,7 +97,7 @@ export default function Overivew() {
         // Extract the values property from the fetched data
         const values = data.sites ?? []
 
-        // Skip the header row (row with 'Place', 'whitecollar', etc.)
+        // Skip the header row
         const rowsWithoutHeader = values.slice(1)
 
         const sitesData = rowsWithoutHeader.map((row: any[]) => {
