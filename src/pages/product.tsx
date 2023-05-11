@@ -482,10 +482,10 @@ export default function Product() {
                 fill='#8884d8'
                 dataKey='value'
               >
-                {pie().map((entry: any, index: number) => (
+                {pie().map((key: any, value: number) => (
                   <Cell
-                    key={`cell-${index}`}
-                    fill={COLORS[index % COLORS.length]}
+                    key={`cell-${value}`}
+                    fill={COLORS[value % COLORS.length]}
                   />
                 ))}
               </Pie>
