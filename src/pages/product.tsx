@@ -92,7 +92,10 @@ export default function Product() {
         // Extract the values property from the fetched data
         const values = data.sites ?? []
 
-        const sitesData = values.map((row: any[]) => {
+        // Skip the header row
+        const rowsWithoutHeader = values.slice(1)
+
+        const sitesData = rowsWithoutHeader.map((row: any[]) => {
           return {
             place: row[0],
             美式咖啡: Number(row[1]),
