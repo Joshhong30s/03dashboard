@@ -213,6 +213,32 @@ export default function Menu() {
     { name: 'Pasta', items: bar4() },
   ]
 
+  const getBgColor = (index: any) => {
+    switch (index) {
+      case 0:
+        return 'bg-green-100'
+      case 1:
+        return 'bg-blue-100'
+      case 2:
+        return 'bg-yellow-100'
+      default:
+        return ''
+    }
+  }
+
+  const getIcon = (index: any) => {
+    switch (index) {
+      case 0:
+        return '👑'
+      case 1:
+        return '🥈'
+      case 2:
+        return '🥉'
+      default:
+        return ''
+    }
+  }
+
   return (
     <div className='p-6'>
       <h1 className='text-4xl mb-6 text-center font-semibold'>Our Menu</h1>
@@ -220,17 +246,26 @@ export default function Menu() {
         <div key={category.name} className='mb-8'>
           <h2 className='text-3xl mb-4 font-semibold'>{category.name}</h2>
           <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6'>
-            {category.items.map((item) => (
-              <div
-                key={item.id}
-                className='border rounded-lg p-4 shadow-md hover:shadow-lg transition-shadow duration-200'
-              >
-                <h3 className='text-2xl mb-2 font-bold'>{item.id}</h3>
-                <div className='flex justify-between'>
-                  <p>本月銷售 {item.id} 個</p>
+            {category.items
+              .sort((a, b) => b.A - a.A)
+              .map((item, index) => (
+                <div
+                  key={item.id}
+                  className={`border rounded-lg p-4 shadow-md hover:shadow-lg transition-shadow duration-200 ${getBgColor(
+                    index
+                  )}`}
+                >
+                  <div className='flex justify-between items-center'>
+                    <h3 className='text-2xl mb-2 font-bold'>{item.id}</h3>
+                    {getIcon(index) && (
+                      <div className='text-2xl'>{getIcon(index)}</div>
+                    )}
+                  </div>
+                  <div className='flex justify-between'>
+                    <p>本月銷售 {item.A} 個</p>
+                  </div>
                 </div>
-              </div>
-            ))}
+              ))}
           </div>
         </div>
       ))}
