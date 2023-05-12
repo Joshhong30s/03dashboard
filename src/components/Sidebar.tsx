@@ -52,7 +52,7 @@ const Sidebar: React.FC<SidebarProps> = ({ show, onToggle }) => {
             href='/overview'
             className='text-base font-medium text-gray-300 hover:text-white transition-colors hover:scale-110'
           >
-            Store Overview
+            STORE OVERVIEW
           </Link>
         </div>
         <div className={navItemClasses}>
@@ -61,7 +61,7 @@ const Sidebar: React.FC<SidebarProps> = ({ show, onToggle }) => {
             href='/comparison'
             className='text-base font-medium text-gray-300 hover:text-white transition-colors hover:scale-110'
           >
-            Store Comparison
+            STORE COMPARISON
           </Link>
         </div>
         <div className={navItemClasses}>
@@ -70,7 +70,7 @@ const Sidebar: React.FC<SidebarProps> = ({ show, onToggle }) => {
             href='/product'
             className='text-base font-medium text-gray-300 hover:text-white transition-colors hover:scale-110'
           >
-            Product Analysis
+            PRODUCT ANALYSIS
           </Link>
         </div>
         <div className={navItemClasses}>
@@ -79,7 +79,7 @@ const Sidebar: React.FC<SidebarProps> = ({ show, onToggle }) => {
             href='/menu'
             className='text-base font-medium text-gray-300 hover:text-white transition-colors hover:scale-110'
           >
-            Store Menu
+            STORE MENU
           </Link>
         </div>
       </nav>
