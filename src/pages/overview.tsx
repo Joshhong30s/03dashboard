@@ -198,7 +198,7 @@ export default function Overview() {
 
       return (
         <div className='space-y-4'>
-          <div className='bg-blue-500 border-2 p-4 m-2 rounded-lg shadow-md w-full md:h-1/2 flex flex-col justify-center items-center gap-4'>
+          <div className='bg-blue-600 border-2 p-4 m-2 rounded-lg shadow-md w-full md:h-1/2 flex flex-col justify-center items-center gap-4'>
             <div className='text-lg  font-bold text-black'>
               Avg. Ticket Size
             </div>
@@ -207,7 +207,7 @@ export default function Overview() {
             </p>
           </div>
 
-          <div className='bg-blue-500  border-2 p-4 m-2 rounded-lg shadow-md w-full md:h-1/2 flex flex-col justify-center items-center gap-4'>
+          <div className='bg-blue-600  border-2 p-4 m-2 rounded-lg shadow-md w-full md:h-1/2 flex flex-col justify-center items-center gap-4'>
             <div className='text-lg font-bold text-black'>
               Avg. Ticket Count
             </div>
@@ -370,8 +370,8 @@ export default function Overview() {
                   <Radar
                     name={sites[selectedSiteIndex]?.place ?? 'Site'}
                     dataKey='A'
-                    stroke={blue[500]}
-                    fill={blue[500]}
+                    stroke={blue[600]}
+                    fill={blue[600]}
                     fillOpacity={0.6}
                     className='text-sm'
                   />
@@ -406,7 +406,7 @@ export default function Overview() {
                       }
                     }}
                   />
-                  <Bar dataKey='A' fill={blue[500]} />
+                  <Bar dataKey='A' fill={blue[600]} />
                 </BarChart>
               </ResponsiveContainer>
             </div>
@@ -450,8 +450,8 @@ export default function Overview() {
               <Area
                 type='monotone'
                 dataKey='A' //
-                stroke={blue[500]}
-                fill={blue[500]}
+                stroke={blue[600]}
+                fill={blue[600]}
               />
             </AreaChart>
           </ResponsiveContainer>
@@ -488,8 +488,8 @@ export default function Overview() {
               <Area
                 type='monotone'
                 dataKey='A' //
-                stroke={blue[500]}
-                fill={blue[500]}
+                stroke={blue[600]}
+                fill={blue[600]}
               />
             </AreaChart>
           </ResponsiveContainer>

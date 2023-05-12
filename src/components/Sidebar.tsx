@@ -82,15 +82,6 @@ const Sidebar: React.FC<SidebarProps> = ({ show, onToggle }) => {
             Store Menu
           </Link>
         </div>
-        <div className={navItemClasses}>
-          <MdOutlinePeopleAlt size={24} className='text-gray-300' />
-          <Link
-            href='/staff'
-            className='text-base font-medium text-gray-300 hover:text-white transition-colors hover:scale-110'
-          >
-            Staff Planning (under dev.)
-          </Link>
-        </div>
       </nav>
     </div>
   )
