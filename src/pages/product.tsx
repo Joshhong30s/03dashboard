@@ -271,36 +271,40 @@ export default function Product() {
 
   const scatter1 = () => {
     if (sites.length > 0) {
-      const { CoffeeTotal, CoffeeAvgPrice } = sites[selectedSiteIndex]
+      const { CoffeeTotal, CoffeeAvgPrice, CoffeeRevenue } =
+        sites[selectedSiteIndex]
 
-      return [{ x: CoffeeTotal, y: CoffeeAvgPrice }]
+      return [{ x: CoffeeTotal, y: CoffeeAvgPrice, z: CoffeeRevenue }]
     }
     return []
   }
 
   const scatter2 = () => {
     if (sites.length > 0) {
-      const { BreadTotal, BreadAvgPrice } = sites[selectedSiteIndex]
+      const { BreadTotal, BreadAvgPrice, BreadRevenue } =
+        sites[selectedSiteIndex]
 
-      return [{ x: BreadTotal, y: BreadAvgPrice }]
+      return [{ x: BreadTotal, y: BreadAvgPrice, z: BreadRevenue }]
     }
     return []
   }
 
   const scatter3 = () => {
     if (sites.length > 0) {
-      const { DessertTotal, DessertAvgPrice } = sites[selectedSiteIndex]
+      const { DessertTotal, DessertAvgPrice, DessertRevenue } =
+        sites[selectedSiteIndex]
 
-      return [{ x: DessertTotal, y: DessertAvgPrice }]
+      return [{ x: DessertTotal, y: DessertAvgPrice, z: DessertRevenue }]
     }
     return []
   }
 
   const scatter4 = () => {
     if (sites.length > 0) {
-      const { PastaTotal, PastaAvgPrice } = sites[selectedSiteIndex]
+      const { PastaTotal, PastaAvgPrice, PastaRevenue } =
+        sites[selectedSiteIndex]
 
-      return [{ x: PastaTotal, y: PastaAvgPrice }]
+      return [{ x: PastaTotal, y: PastaAvgPrice, z: PastaRevenue }]
     }
     return []
   }
@@ -358,7 +362,7 @@ export default function Product() {
           <div className='grid grid-cols-1 md:grid-cols-4 gap-4 mt-8'>
             {/* 1-4 div: bar chart */}
             <div className='text-black bg-gray-100 border-2 p-4 mt-8 rounded-lg shadow-md text-center'>
-              <p className='font-bold mb-6 text-lg'>Item Sold</p>
+              <p className='font-bold mb-6 text-lg'>Coffee Ticket Count</p>
               <ResponsiveContainer width='100%' height={500}>
                 <BarChart
                   width={500}
@@ -389,7 +393,7 @@ export default function Product() {
               </ResponsiveContainer>
             </div>
             <div className='text-black bg-gray-100 border-2 p-4 mt-8 rounded-lg shadow-md text-center'>
-              <p className='font-bold mb-6 text-lg'>Item Sold</p>
+              <p className='font-bold mb-6 text-lg'>Bread Ticket Count</p>
               <ResponsiveContainer width='100%' height={500}>
                 <BarChart
                   width={500}
@@ -420,7 +424,7 @@ export default function Product() {
               </ResponsiveContainer>
             </div>
             <div className='text-black bg-gray-100 border-2 p-4 mt-8 rounded-lg shadow-md text-center'>
-              <p className='font-bold mb-6 text-lg'>Item Sold</p>
+              <p className='font-bold mb-6 text-lg'>Dessert Ticket Count</p>
               <ResponsiveContainer width='100%' height={500}>
                 <BarChart
                   width={500}
@@ -452,7 +456,7 @@ export default function Product() {
             </div>
 
             <div className='text-black bg-gray-100 border-2 p-4 mt-8 rounded-lg shadow-md text-center'>
-              <p className='font-bold mb-6 text-lg'>Item Sold</p>
+              <p className='font-bold mb-6 text-lg'>Pasta Ticket Count</p>
               <ResponsiveContainer width='100%' height={500}>
                 <BarChart
                   width={500}
@@ -488,7 +492,7 @@ export default function Product() {
         <div className='grid grid-cols-1 md:grid-cols-2 gap-4 mt-8'>
           {/* 5th div: pie chart */}
           <div className='text-black bg-gray-100 border-2 p-4 mt-8 rounded-lg shadow-md text-center'>
-            <p className='font-bold mb-6 text-lg'>Item Sold</p>
+            <p className='font-bold mb-6 text-lg'>Revenue Analysis</p>
             <ResponsiveContainer width='100%' height={400}>
               <PieChart>
                 <Pie
@@ -516,7 +520,7 @@ export default function Product() {
 
           {/* 6th div: scatter chart */}
           <div className='text-black bg-gray-100 border-2  p-4 mt-8 rounded-lg shadow-md text-center'>
-            <p className='font-bold mb-6 text-lg'>Weekday Customer</p>
+            <p className='font-bold mb-6 text-lg'>Product Category Analysis</p>
             <ResponsiveContainer width='100%' height={400}>
               <ScatterChart
                 margin={{
@@ -527,8 +531,15 @@ export default function Product() {
                 }}
               >
                 <CartesianGrid />
-                <XAxis type='number' dataKey='x' name='Total' unit='orders' />
+                <XAxis type='number' dataKey='x' name='Total' unit='Qty' />
                 <YAxis type='number' dataKey='y' name='Avg. Price' unit='NT' />
+                <ZAxis
+                  type='number'
+                  dataKey='z'
+                  range={[500, 50]}
+                  name='Revenue'
+                  unit='NT'
+                />
                 <Tooltip cursor={{ strokeDasharray: '3 3' }} />
                 <Legend />
                 <Scatter
