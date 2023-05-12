@@ -1,6 +1,5 @@
 import React, { useState, useEffect, PureComponent } from 'react'
 
-import { blue, gray, green, purple, red, yellow } from 'tailwindcss/colors'
 import {
   PieChart,
   Pie,
@@ -363,7 +362,7 @@ export default function Product() {
             {/* 1-4 div: bar chart */}
             <div className='text-black bg-gray-100 border-2 p-4 mt-8 rounded-lg shadow-md text-center'>
               <p className='font-bold mb-6 text-lg'>Coffee Ticket Count</p>
-              <ResponsiveContainer width='100%' height={500}>
+              <ResponsiveContainer width='100%' height={400}>
                 <BarChart
                   width={500}
                   height={500}
@@ -371,7 +370,7 @@ export default function Product() {
                   data={bar1()}
                   margin={{
                     top: 5,
-                    right: 20,
+                    right: 10,
                     left: 10,
                     bottom: 5,
                   }}
@@ -388,13 +387,13 @@ export default function Product() {
                       }
                     }}
                   />
-                  <Bar dataKey='A' fill={blue[500]} barSize={20} />
+                  <Bar dataKey='A' fill='#0088FE' barSize={20} />
                 </BarChart>
               </ResponsiveContainer>
             </div>
             <div className='text-black bg-gray-100 border-2 p-4 mt-8 rounded-lg shadow-md text-center'>
               <p className='font-bold mb-6 text-lg'>Bread Ticket Count</p>
-              <ResponsiveContainer width='100%' height={500}>
+              <ResponsiveContainer width='100%' height={400}>
                 <BarChart
                   width={500}
                   height={500}
@@ -402,7 +401,7 @@ export default function Product() {
                   data={bar2()}
                   margin={{
                     top: 5,
-                    right: 20,
+                    right: 10,
                     left: 10,
                     bottom: 5,
                   }}
@@ -419,13 +418,13 @@ export default function Product() {
                       }
                     }}
                   />
-                  <Bar dataKey='A' fill={blue[500]} barSize={20} />
+                  <Bar dataKey='A' fill='#00C49F' barSize={20} />
                 </BarChart>
               </ResponsiveContainer>
             </div>
             <div className='text-black bg-gray-100 border-2 p-4 mt-8 rounded-lg shadow-md text-center'>
               <p className='font-bold mb-6 text-lg'>Dessert Ticket Count</p>
-              <ResponsiveContainer width='100%' height={500}>
+              <ResponsiveContainer width='100%' height={400}>
                 <BarChart
                   width={500}
                   height={500}
@@ -433,7 +432,7 @@ export default function Product() {
                   data={bar3()}
                   margin={{
                     top: 5,
-                    right: 20,
+                    right: 10,
                     left: 10,
                     bottom: 5,
                   }}
@@ -450,14 +449,14 @@ export default function Product() {
                       }
                     }}
                   />
-                  <Bar dataKey='A' fill={blue[500]} barSize={20} />
+                  <Bar dataKey='A' fill='#FFBB28' barSize={20} />
                 </BarChart>
               </ResponsiveContainer>
             </div>
 
             <div className='text-black bg-gray-100 border-2 p-4 mt-8 rounded-lg shadow-md text-center'>
               <p className='font-bold mb-6 text-lg'>Pasta Ticket Count</p>
-              <ResponsiveContainer width='100%' height={500}>
+              <ResponsiveContainer width='100%' height={400}>
                 <BarChart
                   width={500}
                   height={500}
@@ -465,7 +464,7 @@ export default function Product() {
                   data={bar4()}
                   margin={{
                     top: 5,
-                    right: 20,
+                    right: 10,
                     left: 10,
                     bottom: 5,
                   }}
@@ -482,7 +481,7 @@ export default function Product() {
                       }
                     }}
                   />
-                  <Bar dataKey='A' fill={blue[500]} barSize={20} />
+                  <Bar dataKey='A' fill='#FF8042' barSize={20} />
                 </BarChart>
               </ResponsiveContainer>
             </div>
