@@ -475,8 +475,8 @@ export default function Product() {
             <PieChart>
               <Pie
                 data={pie()}
-                cx='50%' // change to percentage
-                cy='50%' // change to percentage
+                cx='80%' // change to percentage
+                cy='80%' // change to percentage
                 labelLine={false}
                 label={renderCustomizedLabel}
                 outerRadius={80}
@@ -490,15 +490,7 @@ export default function Product() {
                   />
                 ))}
               </Pie>
-              <Legend
-                formatter={(value, entry, index) => {
-                  if (value === 'A') {
-                    return siteName
-                  } else {
-                    return value
-                  }
-                }}
-              />
+              <Legend formatter={(value, entry, index) => value} />
             </PieChart>
           </ResponsiveContainer>
         </div>
