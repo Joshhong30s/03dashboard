@@ -491,7 +491,7 @@ export default function Product() {
         <div className='grid grid-cols-1 md:grid-cols-2 gap-4 mt-8'>
           {/* 5th div: pie chart */}
           <div className='text-black bg-gray-100 border-2 p-4 mt-8 rounded-lg shadow-md text-center'>
-            <p className='font-bold mb-6 text-lg'>Revenue Analysis</p>
+            <p className='font-bold mb-6 text-lg'>Product Revenue Analysis</p>
             <ResponsiveContainer width='100%' height={400}>
               <PieChart>
                 <Pie

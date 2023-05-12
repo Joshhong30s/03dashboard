@@ -70,7 +70,7 @@ const Sidebar: React.FC<SidebarProps> = ({ show, onToggle }) => {
             href='/product'
             className='text-base font-medium text-gray-300 hover:text-white transition-colors hover:scale-110'
           >
-            Product Analysis (under dev.)
+            Product Analysis
           </Link>
         </div>
         <div className={navItemClasses}>
