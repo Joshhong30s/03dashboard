@@ -552,19 +552,19 @@ export default function Product() {
                   name='Bread'
                   data={scatter2()}
                   fill='#00C49F'
-                  shape='triangle'
+                  shape='star'
                 />
                 <Scatter
                   name='Dessert'
                   data={scatter3()}
                   fill='#FFBB28'
-                  shape='triangle'
+                  shape='star'
                 />
                 <Scatter
                   name='Pasta'
                   data={scatter4()}
                   fill='#FF8042'
-                  shape='triangle'
+                  shape='star'
                 />
               </ScatterChart>
             </ResponsiveContainer>
