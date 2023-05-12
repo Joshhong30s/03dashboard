@@ -239,7 +239,7 @@ export default function Product() {
     return []
   }
 
-  const COLORS = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042']
+  const COLORS = ['#EBF8FF', '#ECFDF5', '#FEF3C7', '#FFEDD5']
 
   const RADIAN = Math.PI / 180
   const renderCustomizedLabel = ({
@@ -387,7 +387,7 @@ export default function Product() {
                       }
                     }}
                   />
-                  <Bar dataKey='A' fill='#0088FE' barSize={20} />
+                  <Bar dataKey='A' fill='#EBF8FF' barSize={20} />
                 </BarChart>
               </ResponsiveContainer>
             </div>
@@ -418,7 +418,7 @@ export default function Product() {
                       }
                     }}
                   />
-                  <Bar dataKey='A' fill='#00C49F' barSize={20} />
+                  <Bar dataKey='A' fill='#ECFDF5' barSize={20} />
                 </BarChart>
               </ResponsiveContainer>
             </div>
@@ -449,7 +449,7 @@ export default function Product() {
                       }
                     }}
                   />
-                  <Bar dataKey='A' fill='#FFBB28' barSize={20} />
+                  <Bar dataKey='A' fill='#FEF3C7' barSize={20} />
                 </BarChart>
               </ResponsiveContainer>
             </div>
@@ -481,7 +481,7 @@ export default function Product() {
                       }
                     }}
                   />
-                  <Bar dataKey='A' fill='#FF8042' barSize={20} />
+                  <Bar dataKey='A' fill='#FFEDD5' barSize={20} />
                 </BarChart>
               </ResponsiveContainer>
             </div>
@@ -544,25 +544,25 @@ export default function Product() {
                 <Scatter
                   name='Coffee'
                   data={scatter1()}
-                  fill='#0088FE'
+                  fill='#EBF8FF'
                   shape='star'
                 />
                 <Scatter
                   name='Bread'
                   data={scatter2()}
-                  fill='#00C49F'
+                  fill='#ECFDF5'
                   shape='star'
                 />
                 <Scatter
                   name='Dessert'
                   data={scatter3()}
-                  fill='#FFBB28'
+                  fill='#FEF3C7'
                   shape='star'
                 />
                 <Scatter
                   name='Pasta'
                   data={scatter4()}
-                  fill='#FF8042'
+                  fill='#FFEDD5'
                   shape='star'
                 />
               </ScatterChart>

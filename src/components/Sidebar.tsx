@@ -79,7 +79,7 @@ const Sidebar: React.FC<SidebarProps> = ({ show, onToggle }) => {
             href='/menu'
             className='text-base font-medium text-gray-300 hover:text-white transition-colors hover:scale-110'
           >
-            Menu Planning (under dev.)
+            Store Menu
           </Link>
         </div>
         <div className={navItemClasses}>
