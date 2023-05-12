@@ -475,22 +475,23 @@ export default function Product() {
             <PieChart>
               <Pie
                 data={pie()}
-                cx='80%' // change to percentage
-                cy='80%' // change to percentage
+                cx='50%'
+                cy='50%'
                 labelLine={false}
                 label={renderCustomizedLabel}
-                outerRadius={80}
+                outerRadius={150}
                 fill='#8884d8'
                 dataKey='value'
+                nameKey='id' // Add this line
               >
-                {pie().map((key: any, value: number) => (
+                {pie().map((entry, index) => (
                   <Cell
-                    key={`cell-${value}`}
-                    fill={COLORS[value % COLORS.length]}
+                    key={`cell-${index}`}
+                    fill={COLORS[index % COLORS.length]}
                   />
                 ))}
               </Pie>
-              <Legend formatter={(value, entry, index) => value} />
+              <Legend />
             </PieChart>
           </ResponsiveContainer>
         </div>
