@@ -408,6 +408,7 @@ export default function Product() {
                 <BarChart
                   width={500}
                   height={500}
+                  layout='vertical' // set layout to vertical
                   data={bar3()}
                   margin={{
                     top: 5,
@@ -417,9 +418,8 @@ export default function Product() {
                   }}
                 >
                   <CartesianGrid strokeDasharray='3 3' />
-                  <XAxis dataKey='id' style={axisStyle} />
-                  <YAxis style={axisStyle} />
-
+                  <XAxis type='number' style={axisStyle} />
+                  <YAxis dataKey='id' type='category' style={axisStyle} />
                   <Legend
                     formatter={(value, entry, index) => {
                       if (value === 'A') {
@@ -433,6 +433,7 @@ export default function Product() {
                 </BarChart>
               </ResponsiveContainer>
             </div>
+
             <div className='text-black bg-gray-100 border-2 p-4 mt-8 rounded-lg shadow-md text-center'>
               <p className='font-bold mb-6 text-lg'>Item Sold</p>
               <ResponsiveContainer width='100%' height={500}>
@@ -460,8 +461,7 @@ export default function Product() {
                       }
                     }}
                   />
-                  <Bar dataKey={siteName} fill={blue[500]} />{' '}
-                  {/* Update dataKey to use siteName */}
+                  <Bar dataKey='A' fill={blue[500]} />
                 </BarChart>
               </ResponsiveContainer>
             </div>
