@@ -250,40 +250,40 @@ export default function Overivew() {
         <div className='grid grid-cols-1 md:grid-cols-1 gap-4'>
           {/* Site A Average Ticket Size */}
           <div className='bg-blue-600  border-2 p-4 m-2 rounded-lg shadow-md w-full flex-grow flex flex-col justify-center items-center gap-4'>
-            <div className='text-base md:text-lg font-bold text-black'>
+            <div className='text-base md:text-lg font-bold text-gray-100'>
               Avg. Ticket Size {siteAName}
             </div>
-            <p className='text-2xl md:text-4xl font-bold text-black'>
+            <p className='text-2xl md:text-4xl font-bold text-white'>
               ${siteAAvgPrice.toFixed(0)}
             </p>
           </div>
 
           {/* Site A Average Ticket Count */}
           <div className='bg-blue-600  border-2 p-4 m-2 rounded-lg shadow-md w-full flex-grow flex flex-col justify-center items-center gap-4'>
-            <div className='text-base md:text-lg font-bold text-black'>
+            <div className='text-base md:text-lg font-bold text-gray-100'>
               Avg. Ticket Count {siteAName}
             </div>
-            <p className='text-2xl md:text-4xl font-bold text-black'>
+            <p className='text-2xl md:text-4xl font-bold text-white'>
               #{siteAAvgCount.toFixed(0)}
             </p>
           </div>
 
           {/* Site B Average Ticket Size */}
           <div className='bg-card bg-yellow-600 border-2 p-4 m-2 rounded-lg shadow-md w-full flex-grow flex flex-col justify-center items-center gap-4'>
-            <div className='text-base md:text-lg font-bold text-black'>
+            <div className='text-base md:text-lg font-bold text-gray-100'>
               Avg. Ticket Size {siteBName}
             </div>
-            <p className='text-2xl md:text-4xl font-bold text-black'>
+            <p className='text-2xl md:text-4xl font-bold text-white'>
               ${siteBAvgPrice.toFixed(0)}
             </p>
           </div>
 
           {/* Site B Average Ticket Count */}
           <div className='bg-card bg-yellow-600 border-2 p-4 m-2 rounded-lg shadow-md w-full flex-grow flex flex-col justify-center items-center gap-4'>
-            <div className='text-base md:text-lg font-bold text-black'>
+            <div className='text-base md:text-lg font-bold text-gray-100'>
               Avg. Ticket Count {siteBName}
             </div>
-            <p className='text-2xl md:text-4xl font-bold text-black'>
+            <p className='text-2xl md:text-4xl font-bold text-white'>
               #{siteBAvgCount.toFixed(0)}
             </p>
           </div>

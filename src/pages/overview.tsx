@@ -199,19 +199,19 @@ export default function Overview() {
       return (
         <div className='space-y-4'>
           <div className='bg-blue-600 border-2 p-4 m-2 rounded-lg shadow-md w-full md:h-1/2 flex flex-col justify-center items-center gap-4'>
-            <div className='text-lg  font-bold text-black'>
+            <div className='text-lg  font-bold text-gray-100'>
               Avg. Ticket Size
             </div>
-            <p className='text-4xl font-bold text-black'>
+            <p className='text-4xl font-bold text-white'>
               ${avgprice.toFixed(0)}
             </p>
           </div>
 
           <div className='bg-blue-600  border-2 p-4 m-2 rounded-lg shadow-md w-full md:h-1/2 flex flex-col justify-center items-center gap-4'>
-            <div className='text-lg font-bold text-black'>
+            <div className='text-lg font-bold text-gray-100'>
               Avg. Ticket Count
             </div>
-            <p className='text-4xl font-bold text-black'>
+            <p className='text-4xl font-bold text-white'>
               #{avgcount.toFixed(0)}
             </p>
           </div>
