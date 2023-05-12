@@ -468,72 +468,74 @@ export default function Product() {
           </div>
         )}
 
-        {/* 5th div: pie chart */}
-        <div className='text-black bg-gray-100 border-2 p-4 mt-8 rounded-lg shadow-md text-center'>
-          <p className='font-bold mb-6 text-lg'>Item Sold</p>
-          <ResponsiveContainer width='100%' height={400}>
-            <PieChart>
-              <Pie
-                data={pie()}
-                cx='50%'
-                cy='50%'
-                labelLine={false}
-                label={renderCustomizedLabel}
-                outerRadius={150}
-                fill='#8884d8'
-                dataKey='value'
-                nameKey='id' // Add this line
-              >
-                {pie().map((entry, index) => (
-                  <Cell
-                    key={`cell-${index}`}
-                    fill={COLORS[index % COLORS.length]}
-                  />
-                ))}
-              </Pie>
-              <Legend />
-            </PieChart>
-          </ResponsiveContainer>
-        </div>
+        <div className='grid grid-cols-1 md:grid-cols-2 gap-4 mt-8'>
+          {/* 5th div: pie chart */}
+          <div className='text-black bg-gray-100 border-2 p-4 mt-8 rounded-lg shadow-md text-center'>
+            <p className='font-bold mb-6 text-lg'>Item Sold</p>
+            <ResponsiveContainer width='100%' height={400}>
+              <PieChart>
+                <Pie
+                  data={pie()}
+                  cx='50%'
+                  cy='50%'
+                  labelLine={false}
+                  label={renderCustomizedLabel}
+                  outerRadius={150}
+                  fill='#8884d8'
+                  dataKey='value'
+                  nameKey='id' // Add this line
+                >
+                  {pie().map((entry, index) => (
+                    <Cell
+                      key={`cell-${index}`}
+                      fill={COLORS[index % COLORS.length]}
+                    />
+                  ))}
+                </Pie>
+                <Legend />
+              </PieChart>
+            </ResponsiveContainer>
+          </div>
 
-        {/* 6th div: scatter chart */}
-        <div className='text-black bg-gray-100 border-2  p-4 mt-8 rounded-lg shadow-md text-center'>
-          <p className='font-bold mb-6 text-lg'>Weekday Customer</p>
-          <ResponsiveContainer width='100%' height={400}>
-            <ScatterChart
-              margin={{
-                top: 20,
-                right: 20,
-                bottom: 20,
-                left: 20,
-              }}
-            >
-              <CartesianGrid />
-              <XAxis type='number' dataKey='x' name='stature' unit='cm' />
-              <YAxis type='number' dataKey='y' name='weight' unit='kg' />
-              <ZAxis
-                type='number'
-                dataKey='z'
-                range={[60, 400]}
-                name='score'
-                unit='km'
-              />
-              <Tooltip cursor={{ strokeDasharray: '3 3' }} />
-              <Legend />
-              <Scatter
-                name='A school'
-                data={data01}
-                fill='#8884d8'
-                shape='star'
-              />
-              <Scatter
-                name='B school'
-                data={data02}
-                fill='#82ca9d'
-                shape='triangle'
-              />
-            </ScatterChart>
-          </ResponsiveContainer>
+          {/* 6th div: scatter chart */}
+          <div className='text-black bg-gray-100 border-2  p-4 mt-8 rounded-lg shadow-md text-center'>
+            <p className='font-bold mb-6 text-lg'>Weekday Customer</p>
+            <ResponsiveContainer width='100%' height={400}>
+              <ScatterChart
+                margin={{
+                  top: 20,
+                  right: 20,
+                  bottom: 20,
+                  left: 20,
+                }}
+              >
+                <CartesianGrid />
+                <XAxis type='number' dataKey='x' name='stature' unit='cm' />
+                <YAxis type='number' dataKey='y' name='weight' unit='kg' />
+                <ZAxis
+                  type='number'
+                  dataKey='z'
+                  range={[60, 400]}
+                  name='score'
+                  unit='km'
+                />
+                <Tooltip cursor={{ strokeDasharray: '3 3' }} />
+                <Legend />
+                <Scatter
+                  name='A school'
+                  data={data01}
+                  fill='#8884d8'
+                  shape='star'
+                />
+                <Scatter
+                  name='B school'
+                  data={data02}
+                  fill='#82ca9d'
+                  shape='triangle'
+                />
+              </ScatterChart>
+            </ResponsiveContainer>
+          </div>
         </div>
       </main>
     </div>
