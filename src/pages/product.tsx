@@ -27,7 +27,7 @@ interface Sites {
   莊園特調: number
   摩卡: number
   哥倫比亞: number
-  Coffee: number
+  CoffeeTotal: number
   CoffeeAvgPrice: number
   可頌: number
   法式吐司: number
@@ -239,7 +239,6 @@ export default function Product() {
     }
     return []
   }
-  console.log(pie())
 
   const COLORS = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042']
 
@@ -270,23 +269,53 @@ export default function Product() {
     )
   }
 
-  const scatter = () => {}
-  const data01 = [
-    { x: 100, y: 200, z: 200 },
-    { x: 120, y: 100, z: 260 },
-    { x: 170, y: 300, z: 400 },
-    { x: 140, y: 250, z: 280 },
-    { x: 150, y: 400, z: 500 },
-    { x: 110, y: 280, z: 200 },
-  ]
-  const data02 = [
-    { x: 200, y: 260, z: 240 },
-    { x: 240, y: 290, z: 220 },
-    { x: 190, y: 290, z: 250 },
-    { x: 198, y: 250, z: 210 },
-    { x: 180, y: 280, z: 260 },
-    { x: 210, y: 220, z: 230 },
-  ]
+  const scatter1 = () => {
+    if (sites.length > 0) {
+      const { CoffeeTotal, CoffeeAvgPrice } = sites[selectedSiteIndex]
+
+      return [
+        { id: 'CoffeeTotal', value: CoffeeTotal },
+        { id: 'CoffeeAvgPrice', value: CoffeeAvgPrice },
+      ]
+    }
+    return []
+  }
+
+  const scatter2 = () => {
+    if (sites.length > 0) {
+      const { BreadTotal, BreadAvgPrice } = sites[selectedSiteIndex]
+
+      return [
+        { id: 'BreadTotale', value: BreadTotal },
+        { id: 'BreadAvgPrice', value: BreadAvgPrice },
+      ]
+    }
+    return []
+  }
+
+  const scatter3 = () => {
+    if (sites.length > 0) {
+      const { DessertTotal, DessertAvgPrice } = sites[selectedSiteIndex]
+
+      return [
+        { id: 'DessertTotale', value: DessertTotal },
+        { id: 'DessertAvgPrice', value: DessertAvgPrice },
+      ]
+    }
+    return []
+  }
+
+  const scatter4 = () => {
+    if (sites.length > 0) {
+      const { PastaTotal, PastaAvgPrice } = sites[selectedSiteIndex]
+
+      return [
+        { id: 'PastaTotal', value: PastaTotal },
+        { id: 'PastaAvgPrice', value: PastaAvgPrice },
+      ]
+    }
+    return []
+  }
 
   const CustomLegend = () => {
     return (
@@ -510,27 +539,32 @@ export default function Product() {
                 }}
               >
                 <CartesianGrid />
-                <XAxis type='number' dataKey='x' name='stature' unit='cm' />
-                <YAxis type='number' dataKey='y' name='weight' unit='kg' />
-                <ZAxis
-                  type='number'
-                  dataKey='z'
-                  range={[60, 400]}
-                  name='score'
-                  unit='km'
-                />
+                <XAxis type='number' dataKey='x' name='Total' unit='orders' />
+                <YAxis type='number' dataKey='y' name='Avg. Price' unit='NT' />
                 <Tooltip cursor={{ strokeDasharray: '3 3' }} />
                 <Legend />
                 <Scatter
-                  name='A school'
-                  data={data01}
-                  fill='#8884d8'
+                  name='Coffee'
+                  data={scatter1()}
+                  fill='#0088FE'
                   shape='star'
                 />
                 <Scatter
-                  name='B school'
-                  data={data02}
-                  fill='#82ca9d'
+                  name='Bread'
+                  data={scatter2()}
+                  fill='#00C49F'
+                  shape='triangle'
+                />
+                <Scatter
+                  name='Dessert'
+                  data={scatter3()}
+                  fill='#FFBB28'
+                  shape='triangle'
+                />
+                <Scatter
+                  name='Pasta'
+                  data={scatter4()}
+                  fill='#FF8042'
                   shape='triangle'
                 />
               </ScatterChart>
