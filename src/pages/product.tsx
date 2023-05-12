@@ -273,10 +273,7 @@ export default function Product() {
     if (sites.length > 0) {
       const { CoffeeTotal, CoffeeAvgPrice } = sites[selectedSiteIndex]
 
-      return [
-        { id: 'CoffeeTotal', value: CoffeeTotal },
-        { id: 'CoffeeAvgPrice', value: CoffeeAvgPrice },
-      ]
+      return [{ x: CoffeeTotal, y: CoffeeAvgPrice }]
     }
     return []
   }
@@ -285,10 +282,7 @@ export default function Product() {
     if (sites.length > 0) {
       const { BreadTotal, BreadAvgPrice } = sites[selectedSiteIndex]
 
-      return [
-        { id: 'BreadTotale', value: BreadTotal },
-        { id: 'BreadAvgPrice', value: BreadAvgPrice },
-      ]
+      return [{ x: BreadTotal, y: BreadAvgPrice }]
     }
     return []
   }
@@ -297,10 +291,7 @@ export default function Product() {
     if (sites.length > 0) {
       const { DessertTotal, DessertAvgPrice } = sites[selectedSiteIndex]
 
-      return [
-        { id: 'DessertTotale', value: DessertTotal },
-        { id: 'DessertAvgPrice', value: DessertAvgPrice },
-      ]
+      return [{ x: DessertTotal, y: DessertAvgPrice }]
     }
     return []
   }
@@ -309,10 +300,7 @@ export default function Product() {
     if (sites.length > 0) {
       const { PastaTotal, PastaAvgPrice } = sites[selectedSiteIndex]
 
-      return [
-        { id: 'PastaTotal', value: PastaTotal },
-        { id: 'PastaAvgPrice', value: PastaAvgPrice },
-      ]
+      return [{ x: PastaTotal, y: PastaAvgPrice }]
     }
     return []
   }
