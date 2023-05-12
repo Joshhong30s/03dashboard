@@ -346,6 +346,7 @@ export default function Product() {
                 <BarChart
                   width={500}
                   height={500}
+                  layout='vertical' // set layout to vertical
                   data={bar1()}
                   margin={{
                     top: 5,
@@ -355,9 +356,8 @@ export default function Product() {
                   }}
                 >
                   <CartesianGrid strokeDasharray='3 3' />
-                  <XAxis dataKey='id' style={axisStyle} />
-                  <YAxis style={axisStyle} />
-
+                  <XAxis type='number' style={axisStyle} />
+                  <YAxis dataKey='id' type='category' style={axisStyle} />
                   <Legend
                     formatter={(value, entry, index) => {
                       if (value === 'A') {
@@ -367,7 +367,7 @@ export default function Product() {
                       }
                     }}
                   />
-                  <Bar dataKey='A' fill={blue[500]} />
+                  <Bar dataKey='A' fill={blue[500]} barSize={20} />
                 </BarChart>
               </ResponsiveContainer>
             </div>
@@ -377,6 +377,7 @@ export default function Product() {
                 <BarChart
                   width={500}
                   height={500}
+                  layout='vertical' // set layout to vertical
                   data={bar2()}
                   margin={{
                     top: 5,
@@ -386,9 +387,8 @@ export default function Product() {
                   }}
                 >
                   <CartesianGrid strokeDasharray='3 3' />
-                  <XAxis dataKey='id' style={axisStyle} />
-                  <YAxis style={axisStyle} />
-
+                  <XAxis type='number' style={axisStyle} />
+                  <YAxis dataKey='id' type='category' style={axisStyle} />
                   <Legend
                     formatter={(value, entry, index) => {
                       if (value === 'A') {
@@ -398,7 +398,7 @@ export default function Product() {
                       }
                     }}
                   />
-                  <Bar dataKey='A' fill={blue[500]} />
+                  <Bar dataKey='A' fill={blue[500]} barSize={20} />
                 </BarChart>
               </ResponsiveContainer>
             </div>
@@ -429,7 +429,7 @@ export default function Product() {
                       }
                     }}
                   />
-                  <Bar dataKey='A' fill={blue[500]} />
+                  <Bar dataKey='A' fill={blue[500]} barSize={20} />
                 </BarChart>
               </ResponsiveContainer>
             </div>
@@ -440,18 +440,18 @@ export default function Product() {
                 <BarChart
                   width={500}
                   height={500}
-                  layout='vertical'
+                  layout='vertical' // set layout to vertical
                   data={bar4()}
                   margin={{
                     top: 5,
-                    right: 10,
+                    right: 20,
                     left: 10,
                     bottom: 5,
                   }}
                 >
                   <CartesianGrid strokeDasharray='3 3' />
                   <XAxis type='number' style={axisStyle} />
-                  <YAxis dataKey='id' style={axisStyle} />
+                  <YAxis dataKey='id' type='category' style={axisStyle} />
                   <Legend
                     formatter={(value, entry, index) => {
                       if (value === 'A') {
@@ -461,7 +461,7 @@ export default function Product() {
                       }
                     }}
                   />
-                  <Bar dataKey='A' fill={blue[500]} />
+                  <Bar dataKey='A' fill={blue[500]} barSize={20} />
                 </BarChart>
               </ResponsiveContainer>
             </div>
@@ -472,11 +472,11 @@ export default function Product() {
         <div className='text-black bg-gray-100 border-2 p-4 mt-8 rounded-lg shadow-md text-center'>
           <p className='font-bold mb-6 text-lg'>Item Sold</p>
           <ResponsiveContainer width='100%' height={400}>
-            <PieChart width={400} height={400}>
+            <PieChart>
               <Pie
                 data={pie()}
-                cx={200}
-                cy={200}
+                cx='50%' // change to percentage
+                cy='50%' // change to percentage
                 labelLine={false}
                 label={renderCustomizedLabel}
                 outerRadius={80}
@@ -490,6 +490,15 @@ export default function Product() {
                   />
                 ))}
               </Pie>
+              <Legend
+                formatter={(value, entry, index) => {
+                  if (value === 'A') {
+                    return siteName
+                  } else {
+                    return value
+                  }
+                }}
+              />
             </PieChart>
           </ResponsiveContainer>
         </div>
