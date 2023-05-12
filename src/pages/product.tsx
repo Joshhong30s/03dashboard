@@ -536,7 +536,7 @@ export default function Product() {
                 <ZAxis
                   type='number'
                   dataKey='z'
-                  range={[50000, 500000]}
+                  range={[50, 500]}
                   name='Revenue'
                   unit='NT'
                 />
