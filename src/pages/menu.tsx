@@ -206,25 +206,34 @@ export default function Menu() {
     return []
   }
 
-  const items = [...bar1(), ...bar2(), ...bar3(), ...bar4()]
+  const categories = [
+    { name: 'Coffee', items: bar1() },
+    { name: 'Bread', items: bar2() },
+    { name: 'Dessert', items: bar3() },
+    { name: 'Pasta', items: bar4() },
+  ]
 
   return (
     <div className='p-6'>
       <h1 className='text-4xl mb-6 text-center font-semibold'>Our Menu</h1>
-      <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6'>
-        {items.map((item) => (
-          <div
-            key={item.id}
-            className='border rounded-lg p-4 shadow-md hover:shadow-lg transition-shadow duration-200'
-          >
-            <h2 className='text-2xl mb-2 font-bold'>{item.id}</h2>
-            <div className='flex justify-between'>
-              <p>{item.A} Qty</p>
-              <p>{item.fullMark} NT</p>
-            </div>
+      {categories.map((category) => (
+        <div key={category.name} className='mb-8'>
+          <h2 className='text-3xl mb-4 font-semibold'>{category.name}</h2>
+          <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6'>
+            {category.items.map((item) => (
+              <div
+                key={item.id}
+                className='border rounded-lg p-4 shadow-md hover:shadow-lg transition-shadow duration-200'
+              >
+                <h3 className='text-2xl mb-2 font-bold'>{item.id}</h3>
+                <div className='flex justify-between'>
+                  <p>本月銷售 {item.id} 個</p>
+                </div>
+              </div>
+            ))}
           </div>
-        ))}
-      </div>
+        </div>
+      ))}
     </div>
   )
 }
