@@ -21,20 +21,22 @@ function MyApp({ Component, pageProps }: AppProps) {
       )}
       <div className='flex flex-grow'>
         <div className='flex flex-col w-full'>
-          <header className='flex justify-between items-center p-4 md:hidden bg-black border-b border-gray-100'>
-            <button
-              onClick={() => setShowSidebar(!showSidebar)}
-              className='md:hidden text-gray-700'
-            >
-              <MdMenu size={30} className='text-white' />
-            </button>
-            <button
-              onClick={() => setShowUserProfile(!showUserProfile)}
-              className='md:hidden text-gray-700'
-            >
-              <MdOutlineAccountBox size={30} className='text-white' />
-            </button>
-          </header>
+          {router.pathname !== '/' && (
+            <header className='flex justify-between items-center p-4 md:hidden bg-black border-b border-gray-100'>
+              <button
+                onClick={() => setShowSidebar(!showSidebar)}
+                className='md:hidden text-gray-700'
+              >
+                <MdMenu size={30} className='text-white' />
+              </button>
+              <button
+                onClick={() => setShowUserProfile(!showUserProfile)}
+                className='md:hidden text-gray-700'
+              >
+                <MdOutlineAccountBox size={30} className='text-white' />
+              </button>
+            </header>
+          )}
           <main className='flex-grow'>
             <Component {...pageProps} />
           </main>
