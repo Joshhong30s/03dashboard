@@ -366,7 +366,7 @@ export default function Product() {
                 <BarChart
                   width={500}
                   height={500}
-                  layout='vertical' // set layout to vertical
+                  layout='vertical'
                   data={bar1()}
                   margin={{
                     top: 5,
@@ -397,7 +397,7 @@ export default function Product() {
                 <BarChart
                   width={500}
                   height={500}
-                  layout='vertical' // set layout to vertical
+                  layout='vertical'
                   data={bar2()}
                   margin={{
                     top: 5,
@@ -428,7 +428,7 @@ export default function Product() {
                 <BarChart
                   width={500}
                   height={500}
-                  layout='vertical' // set layout to vertical
+                  layout='vertical'
                   data={bar3()}
                   margin={{
                     top: 5,
@@ -460,7 +460,7 @@ export default function Product() {
                 <BarChart
                   width={500}
                   height={500}
-                  layout='vertical' // set layout to vertical
+                  layout='vertical'
                   data={bar4()}
                   margin={{
                     top: 5,
@@ -503,7 +503,7 @@ export default function Product() {
                   outerRadius={150}
                   fill='#8884d8'
                   dataKey='value'
-                  nameKey='id' // Add this line
+                  nameKey='id'
                 >
                   {pie().map((entry, index) => (
                     <Cell

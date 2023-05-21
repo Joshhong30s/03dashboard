@@ -164,7 +164,7 @@ export default function Overview() {
         tourists,
         elders,
         students,
-      } = sites[selectedSiteIndex] // <-- Use the selectedSiteIndex here
+      } = sites[selectedSiteIndex]
 
       return [
         { id: 'whitecollar', A: whitecollar, fullMark: 5000 },

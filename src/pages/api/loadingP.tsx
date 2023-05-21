@@ -28,7 +28,7 @@ async function handler(req: NextApiRequest, res: NextApiResponse) {
   const sheets = google.sheets({ version: 'v4', auth })
 
   // query
-  const range = 'product!A1:AL7' // range can be dynamically upon request
+  const range = 'product!A1:AL7'
 
   try {
     const response = await sheets.spreadsheets.values.get({

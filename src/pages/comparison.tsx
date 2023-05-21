@@ -86,7 +86,7 @@ export default function Overivew() {
     fetchSite()
   }, [refresh])
 
-  // Fetch message board data from Google Sheets here
+  // Fetch message board data from Google Sheets
 
   const fetchSite = async () => {
     setLoading(true)
@@ -105,7 +105,7 @@ export default function Overivew() {
         // Extract the values property from the fetched data
         const values = data.sites ?? []
 
-        // Skip the header row (row with 'Place', 'whitecollar', etc.)
+        // Skip the header row
         const rowsWithoutHeader = values.slice(1)
 
         const sitesData = rowsWithoutHeader.map((row: any[]) => {
