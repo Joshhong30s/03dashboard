@@ -1,36 +1,66 @@
-This is a dashboard for shop owners to analyze customers demographic and purchase behaviors.
+# Coffee Manager Dashboard / 咖啡經理
 
-## Store Overview
+Welcome! This is a simple dashboard for coffee store managers to perform customer and ticket analysis easily by using spreadsheet data
 
-This page provides dashboard for single store overview
+## Folder Structure
 
-- Demographic in radar chart
-- Item category sold in bar chart
-- Average ticket price and avaverage ticket count info card
-- Customer during weekdays / weekend in line chart
+```
+src
+ ┣ components
+ ┃ ┣ button.tsx
+ ┃ ┣ calendar.tsx
+ ┃ ┣ Chart.tsx
+ ┃ ┣ Header.tsx
+ ┃ ┣ InfoCard.tsx
+ ┃ ┣ Sidebar.tsx
+ ┃ ┗ UserProfile.tsx
+ ┣ lib
+ ┃ ┗ utils.ts
+ ┣ pages
+ ┃ ┣ api
+ ┃ ┃ ┣ auth
+ ┃ ┃ ┃ ┗ [...nextauth].js
+ ┃ ┃ ┣ loading.tsx
+ ┃ ┃ ┗ loadingP.tsx
+ ┃ ┣ comparison.tsx
+ ┃ ┣ index.tsx
+ ┃ ┣ menu.tsx
+ ┃ ┣ overview.tsx
+ ┃ ┣ product.tsx
+ ┃ ┣ staff.tsx
+ ┃ ┣ _app.tsx
+ ┃ ┗ _document.tsx
+ ┗ styles
+ ┃ ┗ globals.css
 
-## Store Comparison
+```
 
-This page provides dashboard for two store comparison
+## Tech Stack
 
-- Demographic in radar chart
-- Item category sold in bar chart
-- Average ticket price and avaverage ticket count info card
-- Customer during weekdays / weekend in line chart
+Next.js, React, Typescript, TailwindCSS, React Recharts, Googlesheets API.
 
-## Product Analysis (under development)
+## Features
 
-The page provides a sample dashboard for product analysis
+- Single store dashboard
+- Two stores comparison dashboard
+- Product contribution analysis dashboard
+- Menu with top 3 best-selling items
 
-- Query period can be last week, last 14 days, and last month
-- Hero products in each category
-- Pie chart with all items by category
-- bar chart with all items by store
+## Screenshots
 
-## Menu Planning (under development)
+![App Screenshot](https://i.imgur.com/ygMljZS.png)
 
-This page provides some input areas for store owners modify menu with instant visualisation
+## Feedback
 
-## Staff Planning (under development)
+If you are interested in me or have comments for my projects, feel free to send me an email 30sboynote@gmail.com
 
-## This page provides control panel for store owners to adjust staff shift
+## 🚀 About Me
+
+- Currently a frontend developer.
+- Aim to evolve into a fullstack developer.
+- 10 years experience in B2B software sales role in multinational corporations and rising startups.
+
+## 🔗 Links
+
+[![portfolio](https://img.shields.io/badge/my_portfolio-000?style=for-the-badge&logo=ko-fi&logoColor=white)](https://joshhong.vercel.app/)
+[![linkedin](https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/josh-hong-163644102/)
